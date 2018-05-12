@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eda887ee-b1e1-44a3-b078-ac2d9da2ed48" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auxiliary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/auxiliary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finalOutput.bas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finalOutput.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/output.bas" beforeDir="false" afterPath="$PROJECT_DIR$/output.bas" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/at.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/at.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/ct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/ct.txt" afterDir="false" />
@@ -23,8 +24,8 @@
       <file leaf-file-name="Translator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Translator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state relative-caret-position="671">
+              <caret line="232" column="32" lean-forward="true" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#568#569#0" expanded="true" />
@@ -41,7 +42,7 @@
                 <element signature="e#4158#4159#0" expanded="true" />
                 <element signature="e#6645#6646#0" expanded="true" />
                 <element signature="e#6689#6690#0" expanded="true" />
-                <marker date="1526145492559" expanded="true" signature="6151:7738" ph="{...}" />
+                <marker date="1526148131263" expanded="true" signature="6155:7742" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -242,12 +243,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526121600444</updated>
-      <workItem from="1526121604025" duration="22039000" />
+      <workItem from="1526121604025" duration="24143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22039000" />
+    <option name="totallyTimeSpent" value="24143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -264,7 +265,7 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.49309245" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.053134963" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
@@ -275,7 +276,7 @@
       <window_info id="UI Designer" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40807652" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40807652" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -327,8 +328,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Translator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        <state relative-caret-position="671">
+          <caret line="232" column="32" lean-forward="true" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#568#569#0" expanded="true" />
@@ -345,7 +346,7 @@
             <element signature="e#4158#4159#0" expanded="true" />
             <element signature="e#6645#6646#0" expanded="true" />
             <element signature="e#6689#6690#0" expanded="true" />
-            <marker date="1526145492559" expanded="true" signature="6151:7738" ph="{...}" />
+            <marker date="1526148131263" expanded="true" signature="6155:7742" ph="{...}" />
           </folding>
         </state>
       </provider>

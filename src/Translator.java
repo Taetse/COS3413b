@@ -99,7 +99,7 @@ public class Translator {
                     String code3 = translateStatement(abstractNode.children[2]);
                     intermediateCode = code1 + label1 + "\r\n" + code2 + "GOTO " + label3 + "\r\n" + label2 + "\r\n" + code3 + label3 + "\r\n";
                 } else {
-                    intermediateCode = code1 + label1 + "\r\n" + code2 + label2;
+                    intermediateCode = code1 + label1 + "\r\n" + code2 + label2 + "\r\n";
                 }
                 break;
             case WhileLoop:
@@ -137,7 +137,7 @@ public class Translator {
                 }
                 break;
         }
-        return intermediateCode + "";
+        return intermediateCode;
     }
 
     private String translateExpression(AbstractNode abstractNode, String place) {

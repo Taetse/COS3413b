@@ -22,44 +22,44 @@
     18 Term(Grouping(";"))
     19 NonTerm(Code) 25 26 27
      25 NonTerm(Instr) 28
-      28 NonTerm(Assign) 29 30 31
-       29 NonTerm(Var) 32
-        32 Term(Name("b"))
-       30 Term(Assignment("="))
-       31 NonTerm(NumExpr) 33
-        33 Term(Number("3"))
+      28 NonTerm(Decl) 29 30
+       29 NonTerm(Type) 31
+        31 Term(Type("string"))
+       30 NonTerm(Name) 32
+        32 Term(Name("message"))
      26 Term(Grouping(";"))
-     27 NonTerm(Code) 34 35 36
-      34 NonTerm(Instr) 37
-       37 NonTerm(CondBranch) 38 39 40 41 42 43 44 45 46 47 48 49
-        38 Term(Control("if"))
-        39 Term(Grouping("("))
-        40 NonTerm(Bool) 50 51 52 53 54
-         50 Term(Grouping("("))
-         51 NonTerm(Var) 55
-          55 Term(Name("a"))
-         52 Term(Comparison(">"))
-         53 NonTerm(Var) 56
-          56 Term(Name("b"))
-         54 Term(Grouping(")"))
-        41 Term(Grouping(")"))
-        42 Term(Control("then"))
-        43 Term(Grouping("{"))
-        44 NonTerm(Code) 57 58 59
-         57 NonTerm(Instr) 60
-          60 NonTerm(Decl) 61 62
-           61 NonTerm(Type) 63
-            63 Term(Type("string"))
-           62 NonTerm(Name) 64
-            64 Term(Name("kek"))
-         58 Term(Grouping(";"))
-         59 NonTerm(Code) 65 66 67
+     27 NonTerm(Code) 33 34 35
+      33 NonTerm(Instr) 36
+       36 NonTerm(Assign) 37 38 39
+        37 NonTerm(Var) 40
+         40 Term(Name("b"))
+        38 Term(Assignment("="))
+        39 NonTerm(NumExpr) 41
+         41 Term(Number("3"))
+      34 Term(Grouping(";"))
+      35 NonTerm(Code) 42 43 44
+       42 NonTerm(Instr) 45
+        45 NonTerm(CondBranch) 46 47 48 49 50 51 52 53 54 55 56 57
+         46 Term(Control("if"))
+         47 Term(Grouping("("))
+         48 NonTerm(Bool) 58 59 60 61 62
+          58 Term(Grouping("("))
+          59 NonTerm(Var) 63
+           63 Term(Name("a"))
+          60 Term(Comparison(">"))
+          61 NonTerm(Var) 64
+           64 Term(Name("b"))
+          62 Term(Grouping(")"))
+         49 Term(Grouping(")"))
+         50 Term(Control("then"))
+         51 Term(Grouping("{"))
+         52 NonTerm(Code) 65 66 67
           65 NonTerm(Instr) 68
            68 NonTerm(Assign) 69 70 71
             69 NonTerm(Var) 72
-             72 Term(Name("kek"))
+             72 Term(Name("message"))
             70 Term(Assignment("="))
-            71 Term(String("\"groot\""))
+            71 Term(String("\"big\""))
           66 Term(Grouping(";"))
           67 NonTerm(Code) 73
            73 NonTerm(Instr) 74
@@ -67,53 +67,150 @@
              75 Term(IO("output"))
              76 Term(Grouping("("))
              77 NonTerm(Var) 79
-              79 Term(Name("kek"))
+              79 Term(Name("message"))
              78 Term(Grouping(")"))
-        45 Term(Grouping("}"))
-        46 Term(Control("else"))
-        47 Term(Grouping("{"))
-        48 NonTerm(Code) 80 81 82
-         80 NonTerm(Instr) 83
-          83 NonTerm(Decl) 84 85
-           84 NonTerm(Type) 86
-            86 Term(Type("string"))
-           85 NonTerm(Name) 87
-            87 Term(Name("nope"))
-         81 Term(Grouping(";"))
-         82 NonTerm(Code) 88 89 90
-          88 NonTerm(Instr) 91
-           91 NonTerm(Assign) 92 93 94
-            92 NonTerm(Var) 95
-             95 Term(Name("nope"))
-            93 Term(Assignment("="))
-            94 Term(String("\"nope\""))
-          89 Term(Grouping(";"))
-          90 NonTerm(Code) 96
-           96 NonTerm(Instr) 97
-            97 NonTerm(IO) 98 99 100 101
-             98 Term(IO("output"))
-             99 Term(Grouping("("))
-             100 NonTerm(Var) 102
-              102 Term(Name("nope"))
-             101 Term(Grouping(")"))
-        49 Term(Grouping("}"))
-      35 Term(Grouping(";"))
-      36 NonTerm(Code) 103
-       103 NonTerm(Instr) 104
-        104 Term(Special("halt"))
+         53 Term(Grouping("}"))
+         54 Term(Control("else"))
+         55 Term(Grouping("{"))
+         56 NonTerm(Code) 80 81 82
+          80 NonTerm(Instr) 83
+           83 NonTerm(Assign) 84 85 86
+            84 NonTerm(Var) 87
+             87 Term(Name("message"))
+            85 Term(Assignment("="))
+            86 Term(String("\"small\""))
+          81 Term(Grouping(";"))
+          82 NonTerm(Code) 88
+           88 NonTerm(Instr) 89
+            89 NonTerm(IO) 90 91 92 93
+             90 Term(IO("output"))
+             91 Term(Grouping("("))
+             92 NonTerm(Var) 94
+              94 Term(Name("message"))
+             93 Term(Grouping(")"))
+         57 Term(Grouping("}"))
+       43 Term(Grouping(";"))
+       44 NonTerm(Code) 95 96 97
+        95 NonTerm(Instr) 98
+         98 NonTerm(Decl) 99 100
+          99 NonTerm(Type) 101
+           101 Term(Type("num"))
+          100 NonTerm(Name) 102
+           102 Term(Name("c"))
+        96 Term(Grouping(";"))
+        97 NonTerm(Code) 103 104 105
+         103 NonTerm(Instr) 106
+          106 NonTerm(Decl) 107 108
+           107 NonTerm(Type) 109
+            109 Term(Type("string"))
+           108 NonTerm(Name) 110
+            110 Term(Name("k"))
+         104 Term(Grouping(";"))
+         105 NonTerm(Code) 111 112 113
+          111 NonTerm(Instr) 114
+           114 NonTerm(Assign) 115 116 117
+            115 NonTerm(Var) 118
+             118 Term(Name("message"))
+            116 Term(Assignment("="))
+            117 Term(String("\"unit\""))
+          112 Term(Grouping(";"))
+          113 NonTerm(Code) 119 120 121
+           119 NonTerm(Instr) 122
+            122 NonTerm(IO) 123 124 125 126
+             123 Term(IO("output"))
+             124 Term(Grouping("("))
+             125 NonTerm(Var) 127
+              127 Term(Name("message"))
+             126 Term(Grouping(")"))
+           120 Term(Grouping(";"))
+           121 NonTerm(Code) 128 129 130
+            128 NonTerm(Instr) 131
+             131 NonTerm(IO) 132 133 134 135
+              132 Term(IO("input"))
+              133 Term(Grouping("("))
+              134 NonTerm(Var) 136
+               136 Term(Name("k"))
+              135 Term(Grouping(")"))
+            129 Term(Grouping(";"))
+            130 NonTerm(Code) 137 138 139
+             137 NonTerm(Instr) 140
+              140 NonTerm(CondLoop) 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+               141 Term(Control("for"))
+               142 Term(Grouping("("))
+               143 NonTerm(Var) 163
+                163 Term(Name("c"))
+               144 Term(Assignment("="))
+               145 Term(Number("0"))
+               146 Term(Grouping(";"))
+               147 NonTerm(Var) 164
+                164 Term(Name("c"))
+               148 Term(Comparison("<"))
+               149 NonTerm(Var) 165
+                165 Term(Name("a"))
+               150 Term(Grouping(";"))
+               151 NonTerm(Var) 166
+                166 Term(Name("c"))
+               152 Term(Assignment("="))
+               153 Term(Arithmetic("add"))
+               154 Term(Grouping("("))
+               155 NonTerm(Var) 167
+                167 Term(Name("c"))
+               156 Term(Grouping(","))
+               157 Term(Number("1"))
+               158 Term(Grouping(")"))
+               159 Term(Grouping(")"))
+               160 Term(Grouping("{"))
+               161 NonTerm(Code) 168
+                168 NonTerm(Instr) 169
+                 169 NonTerm(IO) 170 171 172 173
+                  170 Term(IO("output"))
+                  171 Term(Grouping("("))
+                  172 NonTerm(Var) 174
+                   174 Term(Name("k"))
+                  173 Term(Grouping(")"))
+               162 Term(Grouping("}"))
+             138 Term(Grouping(";"))
+             139 NonTerm(Code) 175
+              175 NonTerm(Instr) 176
+               176 Term(Special("halt"))
  2 Term(Grouping(";"))
- 3 NonTerm(ProcDefs) 105
-  105 NonTerm(Proc) 106 107 108 109 110
-   106 Term(Procedure("proc"))
-   107 Term(Name("janneman"))
-   108 Term(Grouping("{"))
-   109 NonTerm(Prog) 111
-    111 NonTerm(Code) 112
-     112 NonTerm(Instr) 113
-      113 NonTerm(IO) 114 115 116 117
-       114 Term(IO("input"))
-       115 Term(Grouping("("))
-       116 NonTerm(Var) 118
-        118 Term(Name("a"))
-       117 Term(Grouping(")"))
-   110 Term(Grouping("}"))
+ 3 NonTerm(ProcDefs) 177
+  177 NonTerm(Proc) 178 179 180 181 182
+   178 Term(Procedure("proc"))
+   179 Term(Name("janneman"))
+   180 Term(Grouping("{"))
+   181 NonTerm(Prog) 183
+    183 NonTerm(Code) 184 185 186
+     184 NonTerm(Instr) 187
+      187 NonTerm(Decl) 188 189
+       188 NonTerm(Type) 190
+        190 Term(Type("string"))
+       189 NonTerm(Name) 191
+        191 Term(Name("message"))
+     185 Term(Grouping(";"))
+     186 NonTerm(Code) 192 193 194
+      192 NonTerm(Instr) 195
+       195 NonTerm(Assign) 196 197 198
+        196 NonTerm(Var) 199
+         199 Term(Name("message"))
+        197 Term(Assignment("="))
+        198 Term(String("\"size\""))
+      193 Term(Grouping(";"))
+      194 NonTerm(Code) 200 201 202
+       200 NonTerm(Instr) 203
+        203 NonTerm(IO) 204 205 206 207
+         204 Term(IO("output"))
+         205 Term(Grouping("("))
+         206 NonTerm(Var) 208
+          208 Term(Name("message"))
+         207 Term(Grouping(")"))
+       201 Term(Grouping(";"))
+       202 NonTerm(Code) 209
+        209 NonTerm(Instr) 210
+         210 NonTerm(IO) 211 212 213 214
+          211 Term(IO("input"))
+          212 Term(Grouping("("))
+          213 NonTerm(Var) 215
+           215 Term(Name("a"))
+          214 Term(Grouping(")"))
+   182 Term(Grouping("}"))
