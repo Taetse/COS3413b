@@ -20,8 +20,8 @@
       <file leaf-file-name="Translator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Translator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="64" column="78" lean-forward="true" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
+            <state relative-caret-position="241">
+              <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
               <folding>
                 <element signature="e#221#222#0" expanded="true" />
                 <element signature="e#245#246#0" expanded="true" />
@@ -31,7 +31,9 @@
                 <element signature="e#4080#4081#0" expanded="true" />
                 <element signature="e#4113#4114#0" expanded="true" />
                 <element signature="e#4158#4159#0" expanded="true" />
-                <marker date="1526130070355" expanded="true" signature="3410:4418" ph="{...}" />
+                <element signature="e#6645#6646#0" expanded="true" />
+                <element signature="e#6689#6690#0" expanded="true" />
+                <marker date="1526135553715" expanded="true" signature="4237:5775" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -63,6 +65,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>LABEL</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -216,12 +223,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526121600444</updated>
-      <workItem from="1526121604025" duration="8171000" />
+      <workItem from="1526121604025" duration="13892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8171000" />
+    <option name="totallyTimeSpent" value="13892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -238,7 +245,7 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.51222104" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20297556" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
@@ -249,7 +256,7 @@
       <window_info id="UI Designer" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.49946865" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.46971306" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -266,7 +273,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Translator.java</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -286,8 +301,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Translator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="64" column="78" lean-forward="true" selection-start-line="64" selection-start-column="78" selection-end-line="64" selection-end-column="78" />
+        <state relative-caret-position="241">
+          <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
           <folding>
             <element signature="e#221#222#0" expanded="true" />
             <element signature="e#245#246#0" expanded="true" />
@@ -297,7 +312,9 @@
             <element signature="e#4080#4081#0" expanded="true" />
             <element signature="e#4113#4114#0" expanded="true" />
             <element signature="e#4158#4159#0" expanded="true" />
-            <marker date="1526130070355" expanded="true" signature="3410:4418" ph="{...}" />
+            <element signature="e#6645#6646#0" expanded="true" />
+            <element signature="e#6689#6690#0" expanded="true" />
+            <marker date="1526135553715" expanded="true" signature="4237:5775" ph="{...}" />
           </folding>
         </state>
       </provider>

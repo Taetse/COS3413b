@@ -15,48 +15,25 @@
      15 NonTerm(Name) 17
       17 Term(Name("c"))
    11 Term(Grouping(";"))
-   12 NonTerm(Code) 18 19 20
-    18 NonTerm(Instr) 21
-     21 NonTerm(Decl) 22 23
-      22 NonTerm(Type) 24
-       24 Term(Type("num"))
-      23 NonTerm(Name) 25
-       25 Term(Name("d"))
-    19 Term(Grouping(";"))
-    20 NonTerm(Code) 26
-     26 NonTerm(Instr) 27
-      27 NonTerm(CondLoop) 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
-       28 Term(Control("for"))
-       29 Term(Grouping("("))
-       30 NonTerm(Var) 50
-        50 Term(Name("b"))
-       31 Term(Assignment("="))
-       32 Term(Number("0"))
-       33 Term(Grouping(";"))
-       34 NonTerm(Var) 51
-        51 Term(Name("b"))
-       35 Term(Comparison("<"))
-       36 NonTerm(Var) 52
-        52 Term(Name("d"))
-       37 Term(Grouping(";"))
-       38 NonTerm(Var) 53
-        53 Term(Name("b"))
-       39 Term(Assignment("="))
-       40 Term(Arithmetic("add"))
-       41 Term(Grouping("("))
-       42 NonTerm(Var) 54
-        54 Term(Name("b"))
-       43 Term(Grouping(","))
-       44 Term(Number("1"))
-       45 Term(Grouping(")"))
-       46 Term(Grouping(")"))
-       47 Term(Grouping("{"))
-       48 NonTerm(Code) 55
-        55 NonTerm(Instr) 56
-         56 NonTerm(Assign) 57 58 59
-          57 NonTerm(Var) 60
-           60 Term(Name("c"))
-          58 Term(Assignment("="))
-          59 NonTerm(NumExpr) 61
-           61 Term(Number("99"))
-       49 Term(Grouping("}"))
+   12 NonTerm(Code) 18
+    18 NonTerm(Instr) 19
+     19 NonTerm(CondBranch) 20 21 22 23 24 25 26 27
+      20 Term(Control("if"))
+      21 Term(Grouping("("))
+      22 NonTerm(Bool) 28 29
+       28 Term(Boolean("not"))
+       29 NonTerm(Bool) 30
+        30 NonTerm(Var) 31
+         31 Term(Name("b"))
+      23 Term(Grouping(")"))
+      24 Term(Control("then"))
+      25 Term(Grouping("{"))
+      26 NonTerm(Code) 32
+       32 NonTerm(Instr) 33
+        33 NonTerm(Assign) 34 35 36
+         34 NonTerm(Var) 37
+          37 Term(Name("a"))
+         35 Term(Assignment("="))
+         36 NonTerm(NumExpr) 38
+          38 Term(Number("0"))
+      27 Term(Grouping("}"))

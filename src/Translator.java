@@ -6,11 +6,14 @@ public class Translator {
     private String intermediateCode = "";
     private int varCount = 0;
     private int labelCount = 0;
+    private String endLabel;
 
     public Translator(AbstractTree tree) {
         this.tree = tree;
 
+        endLabel = newLabel();
         intermediateCode = translateStatement(tree.root);
+        intermediateCode += "\r\n" + endLabel + "\r\nEND\r\n";
     }
 
     public String getIntermediateCode() {
@@ -26,6 +29,18 @@ public class Translator {
             case NumDecl:
             case BoolDecl:
                 break;
+            case Halt:
+                intermediateCode = "GOTO " + endLabel + "\r\n";
+                break;
+            case Call:
+                String functionLabel = newFunctionLabel(abstractNode.val);
+                intermediateCode = "GOSUB " + functionLabel + "\r\n";
+                break;
+            case Proc:
+                functionLabel = newFunctionLabel(abstractNode.val);
+                String functionCode = translateStatement(abstractNode.children[0]);
+                intermediateCode = functionLabel + "\r\n" + functionCode + "RETURN";
+                break;
             case CondBranch:
                 String label1 = newLabel();
                 String label2 = newLabel();
@@ -34,9 +49,9 @@ public class Translator {
                 String code2 = translateStatement(abstractNode.children[1]);
                 if (abstractNode.children.length > 2) { //there is an else statement
                     String code3 = translateStatement(abstractNode.children[2]);
-                    intermediateCode = code1 + "LABEL " + label1 + "\r\n" + code2 + "GOTO " + label3 + "\r\nLABEL " + label2 + "\r\n" + code3 + "LABEL " + label3;
+                    intermediateCode = code1 + label1 + "\r\n" + code2 + "GOTO " + label3 + "\r\n" + label2 + "\r\n" + code3 + label3;
                 } else {
-                    intermediateCode = code1 + "LABEL " + label1 + "\r\n" + code2 + "LABEL " + label2;
+                    intermediateCode = code1 + label1 + "\r\n" + code2 + label2;
                 }
                 break;
             case WhileLoop:
@@ -45,7 +60,7 @@ public class Translator {
                 label3 = newLabel();
                 code1 = translateBoolean(abstractNode.children[0], label2, label3);
                 code2 = translateStatement(abstractNode.children[1]);
-                intermediateCode = "LABEL " + label1 + "\r\n" + code1 + "LABEL " + label2 + "\r\n" + code2 + "GOTO " + label1 + "\r\nLABEL " + label3;
+                intermediateCode = label1 + "\r\n" + code1 + label2 + "\r\n" + code2 + "GOTO " + label1 + "\r\n" + label3;
                 break;
             case ForLoop:
                 label1 = newLabel();
@@ -55,11 +70,17 @@ public class Translator {
                 code1 = translateBoolean(abstractNode.children[1], label2, label3); //the condition
                 code2 = translateStatement(abstractNode.children[3]); //the body
                 String code3 = translateStatement(abstractNode.children[2]); //the increment
-                intermediateCode = code0 + "LABEL " + label1 + "\r\n" + code1 + "LABEL " + label2 + "\r\n" + code2 + code3 + "GOTO " + label1 + "\r\nLABEL " + label3;
+                intermediateCode = code0 + label1 + "\r\n" + code1 + label2 + "\r\n" + code2 + code3 + "GOTO " + label1 + "\r\n" + label3;
                 break;
             case Assign:
                 String place = abstractNode.children[0].val;
                 intermediateCode = translateExpression(abstractNode.children[1], place);
+                break;
+            case Output:
+            case Input:
+                place = abstractNode.children[0].val;
+                intermediateCode = translateExpression(abstractNode, place);
+                break;
             default:
                 for (AbstractNode childAbstractNode : abstractNode.children) {
                     intermediateCode += translateStatement(childAbstractNode);
@@ -85,12 +106,20 @@ public class Translator {
             case Number:
                 intermediateCode = "LET " + place + " = " + abstractNode.val;
                 break;
+            case Input:
+                intermediateCode = "INPUT " + place;
+                break;
+            case Output:
+                intermediateCode = "PRINT " + place;
+                break;
             case EqExpr:
             case GreaterExpr:
             case LessExpr:
             case AddExpr:
             case SubExpr:
             case MultExpr:
+            case OrExpr:
+            case AndExpr:
                 String place1 = newNumVar();
                 String place2 = newNumVar();
                 String code1 = translateExpression(abstractNode.children[0], place1);
@@ -98,6 +127,11 @@ public class Translator {
                 String op = translateOp(abstractNode);
                 intermediateCode = code1 + code2 + "LET " + place + " = " + place1 + " " + op + " " + place2;
                 break;
+            case NotExpr:
+                place1 = newNumVar();
+                code1 = translateExpression(abstractNode.children[0], place1);
+                op = translateOp(abstractNode);
+                intermediateCode = code1 + "LET " + place + " = " + op + " " + place1;
         }
 
         return intermediateCode + "\r\n";
@@ -108,24 +142,17 @@ public class Translator {
         String intermediateCode = "";
 
         switch (nodeType) {
-            case True:
-            case False:
-            case Var:
+            case NotExpr:
+                String place1 = newNumVar();
+                String code1 = translateExpression(abstractNode.children[0], place1);
+                String op = translateOp(abstractNode);
+                intermediateCode = code1 + "IF " + op + " " + place1 + " THEN GOTO " + labelTrue + "\r\nGOTO " + labelFalse;
+                break;
+            default:
                 String place = newNumVar();
                 String code = translateExpression(abstractNode, place);
                 intermediateCode = code + "IF " + place + " THEN GOTO " + labelTrue + "\r\nGOTO " + labelFalse;
                 break;
-            case EqExpr:
-            case GreaterExpr:
-            case LessExpr:
-            case AddExpr:
-            case OrExpr:
-                String place1 = newNumVar();
-                String place2 = newNumVar();
-                String code1 = translateExpression(abstractNode.children[0], place1);
-                String code2 = translateExpression(abstractNode.children[1], place2);
-                String op = translateOp(abstractNode);
-                intermediateCode = code1 + code2 + "IF " + place1 + " " + op + " " + place2 + " THEN GOTO " + labelTrue + "\r\nGOTO " + labelFalse;
         }
         return intermediateCode + "\r\n";
     }
@@ -140,6 +167,10 @@ public class Translator {
 
     private String newLabel() {
         return "LABEL" + labelCount++;
+    }
+
+    private String newFunctionLabel(String functionName) {
+        return "LABEL" + functionName;
     }
 
     private String translateOp(AbstractNode abstractNode) {
