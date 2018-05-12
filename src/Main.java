@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 
@@ -20,6 +17,18 @@ public class Main {
 
         System.out.println(semanticTable.toString());
         System.out.println(translator.getIntermediateCode());
+        saveToFile("./auxiliary.txt", translator.getIntermediateCode());
+        System.out.println(translator.getFinalIntermediateCode());
+        saveToFile("./finalOutput.txt", translator.getFinalIntermediateCode());
+    }
+
+    private static void saveToFile(String fileName, String content) {
+        try {
+            PrintWriter out = new PrintWriter(fileName);
+            out.print(content);
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static ArrayList<String> getAbstractFile(String fileName) {

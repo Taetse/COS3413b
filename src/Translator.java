@@ -1,9 +1,14 @@
-import java.util.ArrayList;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Translator {
     private AbstractTree tree;
 //    private ArrayList<String> intermediateCode = new ArrayList<>();
     private String intermediateCode = "";
+    private String finalIntermediateCode;
     private int varCount = 0;
     private int labelCount = 0;
     private String endLabel;
@@ -14,10 +19,51 @@ public class Translator {
         endLabel = newLabel();
         intermediateCode = translateStatement(tree.root);
         intermediateCode += "\r\n" + endLabel + "\r\nEND\r\n";
+        finalIntermediateCode = sequentializeIntermediateCode(splitIntermediateCode());
+    }
+
+    private String sequentializeIntermediateCode(String[] lines) {
+        HashMap<String, Integer> labelMap = new HashMap<>();
+        String sequentializedIntermediateCode = "";
+        Pattern pattern = Pattern.compile("^%P?[0-9]+"); //tag regex
+
+        int index = 0;
+        for (String line : lines) {
+            Matcher matcher = pattern.matcher(line);
+            if (matcher.find()) { //line is a label
+                labelMap.put(matcher.group(), index);
+            } else {
+                index++;
+            }
+        }
+
+        index = 0;
+        pattern = Pattern.compile("%P?[0-9]+"); //tag regex
+        for (String line : lines) {
+            if (line.charAt(0) == '%') //is label line
+                continue;
+            Matcher matcher = pattern.matcher(line);
+            while (matcher.find()) {
+                String label = matcher.group();
+                String lineIndex = labelMap.get(label).toString();
+                line = line.replace(label, lineIndex);
+            }
+            sequentializedIntermediateCode += ++index + " " + line + "\r\n";
+        }
+
+        return sequentializedIntermediateCode;
+    }
+
+    private String[] splitIntermediateCode() {
+        return intermediateCode.split("\r\n");
     }
 
     public String getIntermediateCode() {
         return intermediateCode;
+    }
+
+    public String getFinalIntermediateCode() {
+        return finalIntermediateCode;
     }
 
     private String translateStatement(AbstractNode abstractNode) {
@@ -192,11 +238,11 @@ public class Translator {
     }
 
     private String newLabel() {
-        return "LABEL" + labelCount++;
+        return "%" + labelCount++;
     }
 
     private String newFunctionLabel(String functionName) {
-        return "LABEL" + functionName;
+        return "%" + functionName;
     }
 
     private String translateOp(AbstractNode abstractNode) {
