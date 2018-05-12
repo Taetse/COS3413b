@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String strings[]) {
-        String abstractFileName = (strings.length > 0? strings[0] : "parser/at.txt");
+        String abstractFileName = (strings.length > 0? strings[0] : "at.txt");
         ArrayList<String> lines = getAbstractFile(abstractFileName);
 
         AbstractTree abstractTree = new AbstractTree(lines);

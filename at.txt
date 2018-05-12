@@ -1,62 +1,60 @@
 0 Prog 1 2
- 1 Code 3 4 5 6 7 8 9 10 11 12 13 14 15
-  3 NumDecl("a")
-  4 Call("janneman")
-  5 NumDecl("b")
-  6 StrDecl("message")
-  7 Assign 16 17
-   16 Var("b")
-   17 Number("3")
-  8 CondBranch 18 19 20
-   18 GreaterExpr 21 22
-    21 Var("a")
-    22 Var("b")
-   19 Code 23 24
-    23 Assign 25 26
-     25 Var("message")
-     26 String("big")
-    24 Output 27
-     27 Var("message")
-   20 Code 28 29
-    28 Assign 30 31
-     30 Var("message")
-     31 String("small")
-    29 Output 32
-     32 Var("message")
-  9 NumDecl("c")
-  10 StrDecl("k")
-  11 Assign 33 34
-   33 Var("message")
-   34 String("unit")
-  12 Output 35
-   35 Var("message")
-  13 Input 36
-   36 Var("k")
-  14 ForLoop 37 38 39 40
-   37 Assign 41 42
-    41 Var("c")
-    42 Number("0")
-   38 LessExpr 43 44
-    43 Var("c")
-    44 Var("a")
-   39 Assign 45 46
-    45 Var("c")
-    46 AddExpr 47 48
-     47 Var("c")
-     48 Number("1")
-   40 Code 49
-    49 Output 50
-     50 Var("k")
-  15 Halt
- 2 ProcDefs 51
-  51 Proc("janneman") 52
-   52 Prog 53
-    53 Code 54 55 56 57
-     54 StrDecl("message")
-     55 Assign 58 59
-      58 Var("message")
-      59 String("size")
-     56 Output 60
-      60 Var("message")
-     57 Input 61
-      61 Var("a")
+ 1 Code 3 4 5 6 7 8
+  3 NumDecl("b")
+  4 Assign 9 10
+   9 Var("b")
+   10 Number("1")
+  5 NumDecl("a")
+  6 NumDecl("test")
+  7 Call("p1")
+  8 Output 11
+   11 Var("a")
+ 2 ProcDefs 12 13 14 15 16 17 18 19 20 21
+  12 Proc("p1") 22
+   22 Prog 23
+    23 Code 24
+     24 Call("p2")
+  13 Proc("p2") 25
+   25 Prog 26
+    26 Code 27
+     27 Call("p3")
+  14 Proc("p3") 28
+   28 Prog 29
+    29 Code 30
+     30 Call("p4")
+  15 Proc("p4") 31
+   31 Prog 32
+    32 Code 33
+     33 Call("p5")
+  16 Proc("p5") 34
+   34 Prog 35
+    35 Code 36
+     36 Call("p6")
+  17 Proc("p6") 37
+   37 Prog 38
+    38 Code 39
+     39 Call("p7")
+  18 Proc("p7") 40
+   40 Prog 41
+    41 Code 42
+     42 Call("p8")
+  19 Proc("p8") 43
+   43 Prog 44
+    44 Code 45
+     45 Call("p9")
+  20 Proc("p9") 46
+   46 Prog 47
+    47 Code 48
+     48 Call("p10")
+  21 Proc("p10") 49
+   49 Prog 50
+    50 Code 51
+     51 CondBranch 52 53 54
+      52 True
+      53 Code 55
+       55 Assign 56 57
+        56 Var("a")
+        57 Number("3")
+      54 Code 58
+       58 Input 59
+        59 Var("a")

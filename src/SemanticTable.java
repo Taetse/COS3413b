@@ -5,7 +5,6 @@ import java.util.*;
 public class SemanticTable {
     public SemanticNode table[];
     private ArrayList<HashMap<String, Integer>> symbolTable = new ArrayList<>();
-    private ArrayList<HashMap<String, Integer>> flowStartTable = new ArrayList<>();
     private AbstractTree tree;
 
     private int scopeCount = 0;
@@ -18,9 +17,9 @@ public class SemanticTable {
         this.tree = tree;
         populateTable(tree.root, 0); //populate semantic table
         reName(tree.root); //rename all variables
-        pushFlowStack();
-        establishFlow(tree.root, null); //check variable flow
-        popFlowStack();
+        ArrayList<HashMap<String, Integer>> flowStartTable = new ArrayList<>();
+        pushFlowStack(flowStartTable);
+        establishFlow(tree.root, null, flowStartTable, new ArrayList<>()); //check variable flow
     }
 
     private void populateTable(AbstractNode abstractNode, int scopeId) {
@@ -113,14 +112,14 @@ public class SemanticTable {
 	establishType(abstractNode);
     }
 
-    private boolean establishFlow(AbstractNode abstractNode, AbstractNode parent) {
-	boolean halt = false;
+    private boolean establishFlow(AbstractNode abstractNode, AbstractNode parent, ArrayList<HashMap<String, Integer>> flowStartTable, ArrayList<String> callStack) {
+	    boolean halt = false;
         AbstractNodeType nodeType = abstractNode.type;
         SemanticNode node = table[abstractNode.id];
         switch (nodeType) {
             case Var:
                 //Continue flow
-                node.flowStart = getFlowStart(abstractNode.val);
+                node.flowStart = getFlowStart(flowStartTable, abstractNode.val);
                 break;
             case Number:
             case String:
@@ -130,37 +129,36 @@ public class SemanticTable {
                 node.flowStart = abstractNode.id;
                 break;
             case Prog:
-//                pushFlowStack();
                 if (abstractNode.children.length > 1) //if the prog has proc defs scan them first
-                    establishFlow(abstractNode.children[1], abstractNode);
+                    establishFlow(abstractNode.children[1], abstractNode, flowStartTable, callStack);
                 for (AbstractNode childAbstractNode : abstractNode.children)
-                    establishFlow(childAbstractNode, abstractNode); //recursively call on children
-//                popFlowStack();
+                    establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
                 break;
             case Code:
-                if (table[parent.id].nodeType != AbstractNodeType.Prog) { //if the node is a local block scope
-                    pushFlowStack();
+                if (table[parent.id].nodeType != AbstractNodeType.Prog && //if the node is a local block scope
+                        !(table[parent.id].nodeType == AbstractNodeType.CondBranch && parent.children.length > 2)) { //if it is not a if else cond statement
+                    pushFlowStack(flowStartTable);
                     for (AbstractNode childAbstractNode : abstractNode.children)
 			            if (!halt)
-				            halt = halt || establishFlow(childAbstractNode, abstractNode); //recursive call
-                    popFlowStack();
+				            halt = establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursive call
+                    popFlowStack(flowStartTable);
                 } else {
                     for (AbstractNode childAbstractNode : abstractNode.children)
                         if (!halt)
-                            halt = halt || establishFlow(childAbstractNode, abstractNode); //recursive call
+                            halt = establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursive call
                 }
                 break;
             case Input:
                 for (AbstractNode childAbstractNode : abstractNode.children)
-                    establishFlow(childAbstractNode, abstractNode); //recursive call
+                    establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursive call
                 AbstractNode inputVar = abstractNode.children[0];
                 node.flowStart = abstractNode.id;
                 table[inputVar.id].flowStart = abstractNode.id;
-                putFlowStart(inputVar.val, abstractNode.id);
+                putFlowStart(flowStartTable, inputVar.val, abstractNode.id);
                 break;
             case Assign:
                 for (AbstractNode childAbstractNode : abstractNode.children)
-                    establishFlow(childAbstractNode, abstractNode); //recursively call on children
+                    establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
 
                 AbstractNode leftOperand = abstractNode.children[0];
                 AbstractNode rightOperand = abstractNode.children[1];
@@ -182,7 +180,7 @@ public class SemanticTable {
                         node.flowStart = table[rightOperand.id].flowStart;
                         table[leftOperand.id].flowStart = table[rightOperand.id].flowStart;
                         if (table[rightOperand.id].flowStart != null)  //if rhs operand has value
-                            putFlowStart(leftOperand.val, rightOperand.id);
+                            putFlowStart(flowStartTable, leftOperand.val, rightOperand.id);
                         break;
                 }
                 break;
@@ -195,28 +193,55 @@ public class SemanticTable {
             case AndExpr:
             case OrExpr:
                 for (AbstractNode childAbstractNode : abstractNode.children)
-                    establishFlow(childAbstractNode, abstractNode); //recursively call on children
+                    establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
 
                 leftOperand = abstractNode.children[0];
                 rightOperand = abstractNode.children[1];
                 if (table[leftOperand.id].flowStart != null && table[rightOperand.id].flowStart != null)
                     node.flowStart = abstractNode.id;
                 break;
-            case Output:
-            case NotExpr:
             case CondBranch:
-            case WhileLoop:
-                for (AbstractNode childAbstractNode : abstractNode.children)
-                    establishFlow(childAbstractNode, abstractNode); //recursively call on children
+                if (abstractNode.children.length < 3) {
+                    for (AbstractNode childAbstractNode : abstractNode.children)
+                        establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
+                } else {
+                    establishFlow(abstractNode.children[0], abstractNode, flowStartTable, callStack);
+                    ArrayList<HashMap<String, Integer>> flowStartTable1 = new ArrayList<>(flowStartTable);
+                    pushFlowStack(flowStartTable1);
+                    establishFlow(abstractNode.children[1], abstractNode, flowStartTable1, callStack);
+                    ArrayList<HashMap<String, Integer>> flowStartTable2 = new ArrayList<>(flowStartTable);
+                    pushFlowStack(flowStartTable2);
+                    establishFlow(abstractNode.children[2], abstractNode, flowStartTable2, callStack);
+
+                    Iterator it = flowStartTable1.get(flowStartTable1.size() - 1).entrySet().iterator(); //get top layer
+                    while (it.hasNext()) {
+                        Map.Entry pair = (Map.Entry)it.next();
+                        Integer flowStart = getFlowStart(flowStartTable2, pair.getKey().toString());
+                        if (flowStart != null)
+                            putFlowStart(flowStartTable, pair.getKey().toString(), (Integer) pair.getValue());
+                        it.remove(); // avoids a ConcurrentModificationException
+                    }
+                }
 
                 AbstractNode guard = abstractNode.children[0];
 
                 if (table[guard.id].flowStart != null)
                     node.flowStart = guard.id;
                 break;
+            case Output:
+            case NotExpr:
+            case WhileLoop:
+                for (AbstractNode childAbstractNode : abstractNode.children)
+                    establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
+
+                guard = abstractNode.children[0];
+
+                if (table[guard.id].flowStart != null)
+                    node.flowStart = guard.id;
+                break;
             case ForLoop:
                 for (AbstractNode childAbstractNode : abstractNode.children)
-                    establishFlow(childAbstractNode, abstractNode); //recursively call on children
+                    establishFlow(childAbstractNode, abstractNode,flowStartTable, callStack); //recursively call on children
 
                 AbstractNode assign = abstractNode.children[0];
                 AbstractNode compare = abstractNode.children[1];
@@ -227,20 +252,23 @@ public class SemanticTable {
                 break;
             case Call:
                 Integer bodyId = table[abstractNode.id].usageSource;
-                if (bodyId != null) {
+                int index = callStack.indexOf(abstractNode.val); //check for recursiveness
+                if (bodyId != null && index == -1) {
+                    callStack.add(abstractNode.val);
                     AbstractNode bodyAbstractNode = tree.nodes[bodyId];
-                    establishFlow(bodyAbstractNode, abstractNode);
+                    establishFlow(bodyAbstractNode, abstractNode, flowStartTable, callStack);
+                    callStack.remove(abstractNode.val);
                 }
                 break;
             case Proc:
                 if (table[parent.id].nodeType != AbstractNodeType.Call) {
-                    pushFlowStack();
+                    pushFlowStack(flowStartTable);
                     for (AbstractNode childAbstractNode : abstractNode.children)
-                        establishFlow(childAbstractNode, abstractNode); //recursively call on children
-                    popFlowStack();
+                        establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
+                    popFlowStack(flowStartTable);
                 } else {
                     for (AbstractNode childAbstractNode : abstractNode.children)
-                        establishFlow(childAbstractNode, abstractNode); //recursively call on children
+                        establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
                 }
                 break;
             case Halt:
@@ -248,7 +276,7 @@ public class SemanticTable {
                 return true;
             default:
                 for (AbstractNode childAbstractNode : abstractNode.children)
-                    establishFlow(childAbstractNode, abstractNode); //recursively call on children
+                    establishFlow(childAbstractNode, abstractNode, flowStartTable, callStack); //recursively call on children
                 break;
         }
         node.reachable = true;
@@ -371,7 +399,7 @@ public class SemanticTable {
         return symbolTable.get(symbolTable.size() - 1).get(name) != null; //lookup variable in scope layer symbol table
     }
 
-    private Integer getFlowStart(String name) {
+    private Integer getFlowStart(ArrayList<HashMap<String, Integer>> flowStartTable, String name) {
         for (int a = flowStartTable.size() - 1; a >= 0; a--) { //loop through scope layer stack
             if (flowStartTable.get(a).get(name) != null) //lookup variable in scope layer symbol table
                 return flowStartTable.get(a).get(name); //if found
@@ -379,15 +407,15 @@ public class SemanticTable {
         return null;
     }
 
-    private void popFlowStack() {
+    private void popFlowStack(ArrayList<HashMap<String, Integer>> flowStartTable) {
         flowStartTable.remove(flowStartTable.size() - 1);
     }
 
-    private void pushFlowStack() {
+    private void pushFlowStack(ArrayList<HashMap<String, Integer>> flowStartTable) {
         flowStartTable.add(new HashMap<>());
     }
 
-    private void putFlowStart(String name, int flowStart) {
+    private void putFlowStart(ArrayList<HashMap<String, Integer>> flowStartTable, String name, int flowStart) {
         flowStartTable.get(flowStartTable.size() - 1).put(name, flowStart); //insert declaration in flow table
     }
 
@@ -438,15 +466,6 @@ public class SemanticTable {
     public String toString(AbstractNode node, String indent) {
         String string = "";
         switch (table[node.id].nodeType) {
-//            case Prog:
-//            case Proc:
-//            case ForLoop:
-//            case WhileLoop:
-//                string = String.format("%-3d|", node.id) + indent + table[node.id].toString() + " {\r\n";
-//                for (AbstractNode abstractNode : node.children)
-//                    string += toString(abstractNode, indent + "|  ");
-//                string += "   |" + indent + "}\r\n";
-//                break;
             default:
                 string = String.format("%-3d|", node.id) + indent + table[node.id].toString() + "\r\n";
 

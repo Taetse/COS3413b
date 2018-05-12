@@ -20,7 +20,6 @@ public class Translator {
         endLabel = newLabel();
         intermediateCode = translateStatement(tree.root);
         intermediateCode += endLabel + "\r\nEND\r\n";
-        System.out.println(intermediateCode);
         finalIntermediateCode = sequentializeIntermediateCode(splitIntermediateCode());
     }
 
