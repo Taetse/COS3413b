@@ -1,26 +1,21 @@
 0 Prog 1
- 1 Code 2 3 4 5 6 7 8
-  2 NumDecl("a")
-  3 NumDecl("b")
-  4 NumDecl("c")
-  5 Assign 9 10
-   9 Var("a")
-   10 Number("0")
-  6 Assign 11 12
-   11 Var("b")
-   12 Var("c")
-  7 Assign 13 14
-   13 Var("b")
-   14 AddExpr 15 16
-    15 Var("a")
-    16 Var("b")
-  8 CondBranch 17 18 19
-   17 True
-   18 Code 20
-    20 Assign 21 22
-     21 Var("a")
-     22 Number("8")
-   19 Code 23
-    23 Assign 24 25
-     24 Var("a")
-     25 Number("20")
+ 1 Code 2 3 4 5
+  2 NumDecl("b")
+  3 NumDecl("c")
+  4 NumDecl("d")
+  5 ForLoop 6 7 8 9
+   6 Assign 10 11
+    10 Var("b")
+    11 Number("0")
+   7 LessExpr 12 13
+    12 Var("b")
+    13 Var("d")
+   8 Assign 14 15
+    14 Var("b")
+    15 AddExpr 16 17
+     16 Var("b")
+     17 Number("1")
+   9 Code 18
+    18 Assign 19 20
+     19 Var("c")
+     20 Number("99")

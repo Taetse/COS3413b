@@ -5,7 +5,7 @@
     6 NonTerm(Type) 8
      8 Term(Type("num"))
     7 NonTerm(Name) 9
-     9 Term(Name("a"))
+     9 Term(Name("b"))
   3 Term(Grouping(";"))
   4 NonTerm(Code) 10 11 12
    10 NonTerm(Instr) 13
@@ -13,7 +13,7 @@
      14 NonTerm(Type) 16
       16 Term(Type("num"))
      15 NonTerm(Name) 17
-      17 Term(Name("b"))
+      17 Term(Name("c"))
    11 Term(Grouping(";"))
    12 NonTerm(Code) 18 19 20
     18 NonTerm(Instr) 21
@@ -21,72 +21,42 @@
       22 NonTerm(Type) 24
        24 Term(Type("num"))
       23 NonTerm(Name) 25
-       25 Term(Name("c"))
+       25 Term(Name("d"))
     19 Term(Grouping(";"))
-    20 NonTerm(Code) 26 27 28
-     26 NonTerm(Instr) 29
-      29 NonTerm(Assign) 30 31 32
-       30 NonTerm(Var) 33
-        33 Term(Name("a"))
+    20 NonTerm(Code) 26
+     26 NonTerm(Instr) 27
+      27 NonTerm(CondLoop) 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+       28 Term(Control("for"))
+       29 Term(Grouping("("))
+       30 NonTerm(Var) 50
+        50 Term(Name("b"))
        31 Term(Assignment("="))
-       32 NonTerm(NumExpr) 34
-        34 Term(Number("0"))
-     27 Term(Grouping(";"))
-     28 NonTerm(Code) 35 36 37
-      35 NonTerm(Instr) 38
-       38 NonTerm(Assign) 39 40 41
-        39 NonTerm(Var) 42
-         42 Term(Name("b"))
-        40 Term(Assignment("="))
-        41 NonTerm(Var) 43
-         43 Term(Name("c"))
-      36 Term(Grouping(";"))
-      37 NonTerm(Code) 44 45 46
-       44 NonTerm(Instr) 47
-        47 NonTerm(Assign) 48 49 50
-         48 NonTerm(Var) 51
-          51 Term(Name("b"))
-         49 Term(Assignment("="))
-         50 NonTerm(NumExpr) 52
-          52 NonTerm(Calc) 53 54 55 56 57 58
-           53 Term(Arithmetic("add"))
-           54 Term(Grouping("("))
-           55 NonTerm(NumExpr) 59
-            59 NonTerm(Var) 60
-             60 Term(Name("a"))
-           56 Term(Grouping(","))
-           57 NonTerm(NumExpr) 61
-            61 NonTerm(Var) 62
-             62 Term(Name("b"))
-           58 Term(Grouping(")"))
-       45 Term(Grouping(";"))
-       46 NonTerm(Code) 63
-        63 NonTerm(Instr) 64
-         64 NonTerm(CondBranch) 65 66 67 68 69 70 71 72 73 74 75 76
-          65 Term(Control("if"))
-          66 Term(Grouping("("))
-          67 NonTerm(Bool) 77
-           77 Term(Truth("T"))
-          68 Term(Grouping(")"))
-          69 Term(Control("then"))
-          70 Term(Grouping("{"))
-          71 NonTerm(Code) 78
-           78 NonTerm(Instr) 79
-            79 NonTerm(Assign) 80 81 82
-             80 NonTerm(Var) 83
-              83 Term(Name("a"))
-             81 Term(Assignment("="))
-             82 NonTerm(NumExpr) 84
-              84 Term(Number("8"))
-          72 Term(Grouping("}"))
-          73 Term(Control("else"))
-          74 Term(Grouping("{"))
-          75 NonTerm(Code) 85
-           85 NonTerm(Instr) 86
-            86 NonTerm(Assign) 87 88 89
-             87 NonTerm(Var) 90
-              90 Term(Name("a"))
-             88 Term(Assignment("="))
-             89 NonTerm(NumExpr) 91
-              91 Term(Number("20"))
-          76 Term(Grouping("}"))
+       32 Term(Number("0"))
+       33 Term(Grouping(";"))
+       34 NonTerm(Var) 51
+        51 Term(Name("b"))
+       35 Term(Comparison("<"))
+       36 NonTerm(Var) 52
+        52 Term(Name("d"))
+       37 Term(Grouping(";"))
+       38 NonTerm(Var) 53
+        53 Term(Name("b"))
+       39 Term(Assignment("="))
+       40 Term(Arithmetic("add"))
+       41 Term(Grouping("("))
+       42 NonTerm(Var) 54
+        54 Term(Name("b"))
+       43 Term(Grouping(","))
+       44 Term(Number("1"))
+       45 Term(Grouping(")"))
+       46 Term(Grouping(")"))
+       47 Term(Grouping("{"))
+       48 NonTerm(Code) 55
+        55 NonTerm(Instr) 56
+         56 NonTerm(Assign) 57 58 59
+          57 NonTerm(Var) 60
+           60 Term(Name("c"))
+          58 Term(Assignment("="))
+          59 NonTerm(NumExpr) 61
+           61 Term(Number("99"))
+       49 Term(Grouping("}"))

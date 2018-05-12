@@ -39,6 +39,24 @@ public class Translator {
                     intermediateCode = code1 + "LABEL " + label1 + "\r\n" + code2 + "LABEL " + label2;
                 }
                 break;
+            case WhileLoop:
+                label1 = newLabel();
+                label2 = newLabel();
+                label3 = newLabel();
+                code1 = translateBoolean(abstractNode.children[0], label2, label3);
+                code2 = translateStatement(abstractNode.children[1]);
+                intermediateCode = "LABEL " + label1 + "\r\n" + code1 + "LABEL " + label2 + "\r\n" + code2 + "GOTO " + label1 + "\r\nLABEL " + label3;
+                break;
+            case ForLoop:
+                label1 = newLabel();
+                label2 = newLabel();
+                label3 = newLabel();
+                String code0 = translateStatement(abstractNode.children[0]); //the assignment
+                code1 = translateBoolean(abstractNode.children[1], label2, label3); //the condition
+                code2 = translateStatement(abstractNode.children[3]); //the body
+                String code3 = translateStatement(abstractNode.children[2]); //the increment
+                intermediateCode = code0 + "LABEL " + label1 + "\r\n" + code1 + "LABEL " + label2 + "\r\n" + code2 + code3 + "GOTO " + label1 + "\r\nLABEL " + label3;
+                break;
             case Assign:
                 String place = abstractNode.children[0].val;
                 intermediateCode = translateExpression(abstractNode.children[1], place);
@@ -56,7 +74,6 @@ public class Translator {
         String intermediateCode = "";
 
         switch (nodeType) {
-
             case True:
                 intermediateCode = "LET " + place + " = 1";
                 break;
@@ -81,8 +98,6 @@ public class Translator {
                 String op = translateOp(abstractNode);
                 intermediateCode = code1 + code2 + "LET " + place + " = " + place1 + " " + op + " " + place2;
                 break;
-
-
         }
 
         return intermediateCode + "\r\n";

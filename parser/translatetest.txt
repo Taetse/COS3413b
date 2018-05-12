@@ -1,9 +1,4 @@
-num a;
 num b;
 num c;
-
-a = 0;
-b = c;
-b = add(a, b);
-
-if(T) then {a=8} else {a = 20}
+num d;
+for(b = 0; b < d; b = add(b,1)) {c = 99}
