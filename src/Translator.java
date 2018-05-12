@@ -20,6 +20,7 @@ public class Translator {
         endLabel = newLabel();
         intermediateCode = translateStatement(tree.root);
         intermediateCode += endLabel + "\r\nEND\r\n";
+        System.out.println(intermediateCode);
         finalIntermediateCode = sequentializeIntermediateCode(splitIntermediateCode());
     }
 
@@ -86,7 +87,7 @@ public class Translator {
             case Proc:
                 functionLabel = newFunctionLabel(abstractNode.val);
                 String functionCode = translateStatement(abstractNode.children[0]);
-                intermediateCode = functionLabel + "\r\n" + functionCode + "RETURN";
+                intermediateCode = functionLabel + "\r\n" + functionCode + "RETURN" + "\r\n";
                 break;
             case CondBranch:
                 String label1 = newLabel();
@@ -96,7 +97,7 @@ public class Translator {
                 String code2 = translateStatement(abstractNode.children[1]);
                 if (abstractNode.children.length > 2) { //there is an else statement
                     String code3 = translateStatement(abstractNode.children[2]);
-                    intermediateCode = code1 + label1 + "\r\n" + code2 + "GOTO " + label3 + "\r\n" + label2 + "\r\n" + code3 + label3;
+                    intermediateCode = code1 + label1 + "\r\n" + code2 + "GOTO " + label3 + "\r\n" + label2 + "\r\n" + code3 + label3 + "\r\n";
                 } else {
                     intermediateCode = code1 + label1 + "\r\n" + code2 + label2;
                 }
@@ -107,7 +108,7 @@ public class Translator {
                 label3 = newLabel();
                 code1 = translateBoolean(abstractNode.children[0], label2, label3);
                 code2 = translateStatement(abstractNode.children[1]);
-                intermediateCode = label1 + "\r\n" + code1 + label2 + "\r\n" + code2 + "GOTO " + label1 + "\r\n" + label3;
+                intermediateCode = label1 + "\r\n" + code1 + label2 + "\r\n" + code2 + "GOTO " + label1 + "\r\n" + label3 + "\r\n";
                 break;
             case ForLoop:
                 label1 = newLabel();
@@ -117,7 +118,7 @@ public class Translator {
                 code1 = translateBoolean(abstractNode.children[1], label2, label3); //the condition
                 code2 = translateStatement(abstractNode.children[3]); //the body
                 String code3 = translateStatement(abstractNode.children[2]); //the increment
-                intermediateCode = code0 + label1 + "\r\n" + code1 + label2 + "\r\n" + code2 + code3 + "GOTO " + label1 + "\r\n" + label3;
+                intermediateCode = code0 + label1 + "\r\n" + code1 + label2 + "\r\n" + code2 + code3 + "GOTO " + label1 + "\r\n" + label3 + "\r\n";
                 break;
             case Assign:
                 String place = abstractNode.children[0].val;

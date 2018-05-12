@@ -1,4 +1,9 @@
-string kek;
-input(kek);
-output(kek);
-halt
+num a;
+janneman;
+num b;
+b = 3;
+
+if ((a>b)) then {string kek; kek = "groot"; output(kek)} else {string nope; nope = "nope"; output(nope)};
+halt;
+
+proc janneman {input(a)}
