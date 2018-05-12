@@ -13,19 +13,20 @@ public class Main {
 
         AbstractTree abstractTree = new AbstractTree(lines);
         SemanticTable semanticTable = new SemanticTable(abstractTree);
-        Translator translator = new Translator(abstractTree);
+        Translator translator = new Translator(abstractTree, semanticTable);
 
         System.out.println(semanticTable.toString());
         System.out.println(translator.getIntermediateCode());
         saveToFile("./auxiliary.txt", translator.getIntermediateCode());
         System.out.println(translator.getFinalIntermediateCode());
-        saveToFile("./finalOutput.txt", translator.getFinalIntermediateCode());
+        saveToFile("./output.bas", translator.getFinalIntermediateCode());
     }
 
     private static void saveToFile(String fileName, String content) {
         try {
             PrintWriter out = new PrintWriter(fileName);
             out.print(content);
+            out.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }

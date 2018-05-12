@@ -6,19 +6,20 @@ import java.util.regex.Pattern;
 
 public class Translator {
     private AbstractTree tree;
-//    private ArrayList<String> intermediateCode = new ArrayList<>();
-    private String intermediateCode = "";
+    private SemanticTable semanticTable;
+    private String intermediateCode;
     private String finalIntermediateCode;
     private int varCount = 0;
     private int labelCount = 0;
     private String endLabel;
 
-    public Translator(AbstractTree tree) {
+    public Translator(AbstractTree tree, SemanticTable semanticTable) {
         this.tree = tree;
+        this.semanticTable = semanticTable;
 
         endLabel = newLabel();
         intermediateCode = translateStatement(tree.root);
-        intermediateCode += "\r\n" + endLabel + "\r\nEND\r\n";
+        intermediateCode += endLabel + "\r\nEND\r\n";
         finalIntermediateCode = sequentializeIntermediateCode(splitIntermediateCode());
     }
 
@@ -40,7 +41,7 @@ public class Translator {
         index = 0;
         pattern = Pattern.compile("%P?[0-9]+"); //tag regex
         for (String line : lines) {
-            if (line.charAt(0) == '%') //is label line
+            if (line.length() == 0 || line.charAt(0) == '%') //is label line
                 continue;
             Matcher matcher = pattern.matcher(line);
             while (matcher.find()) {
@@ -48,7 +49,7 @@ public class Translator {
                 String lineIndex = labelMap.get(label).toString();
                 line = line.replace(label, lineIndex);
             }
-            sequentializedIntermediateCode += ++index + " " + line + "\r\n";
+            sequentializedIntermediateCode += index++ + " " + line + "\r\n";
         }
 
         return sequentializedIntermediateCode;
@@ -120,11 +121,13 @@ public class Translator {
                 break;
             case Assign:
                 String place = abstractNode.children[0].val;
+                place += (semanticTable.table[abstractNode.id].nameType == NameType.S? "$" : "");
                 intermediateCode = translateExpression(abstractNode.children[1], place);
                 break;
             case Output:
             case Input:
                 place = abstractNode.children[0].val;
+                place += (semanticTable.table[abstractNode.id].nameType == NameType.S? "$" : "");
                 intermediateCode = translateExpression(abstractNode, place);
                 break;
             default:

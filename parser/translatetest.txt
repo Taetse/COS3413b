@@ -1,6 +1,4 @@
-num b;
-num c;
-num b;
-num a;
-
-if (and(a,or(b,c))) then {halt}
+string kek;
+input(kek);
+output(kek);
+halt

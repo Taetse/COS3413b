@@ -1,14 +1,8 @@
 0 Prog 1
- 1 Code 2 3 4 5 6
-  2 NumDecl("b")
-  3 NumDecl("c")
-  4 NumDecl("b")
-  5 NumDecl("a")
-  6 CondBranch 7 8
-   7 AndExpr 9 10
-    9 Var("a")
-    10 OrExpr 11 12
-     11 Var("b")
-     12 Var("c")
-   8 Code 13
-    13 Halt
+ 1 Code 2 3 4 5
+  2 StrDecl("kek")
+  3 Input 6
+   6 Var("kek")
+  4 Output 7
+   7 Var("kek")
+  5 Halt

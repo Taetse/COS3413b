@@ -3,62 +3,28 @@
   2 NonTerm(Instr) 5
    5 NonTerm(Decl) 6 7
     6 NonTerm(Type) 8
-     8 Term(Type("num"))
+     8 Term(Type("string"))
     7 NonTerm(Name) 9
-     9 Term(Name("b"))
+     9 Term(Name("kek"))
   3 Term(Grouping(";"))
   4 NonTerm(Code) 10 11 12
    10 NonTerm(Instr) 13
-    13 NonTerm(Decl) 14 15
-     14 NonTerm(Type) 16
-      16 Term(Type("num"))
-     15 NonTerm(Name) 17
-      17 Term(Name("c"))
+    13 NonTerm(IO) 14 15 16 17
+     14 Term(IO("input"))
+     15 Term(Grouping("("))
+     16 NonTerm(Var) 18
+      18 Term(Name("kek"))
+     17 Term(Grouping(")"))
    11 Term(Grouping(";"))
-   12 NonTerm(Code) 18 19 20
-    18 NonTerm(Instr) 21
-     21 NonTerm(Decl) 22 23
-      22 NonTerm(Type) 24
-       24 Term(Type("num"))
-      23 NonTerm(Name) 25
-       25 Term(Name("b"))
-    19 Term(Grouping(";"))
-    20 NonTerm(Code) 26 27 28
-     26 NonTerm(Instr) 29
-      29 NonTerm(Decl) 30 31
-       30 NonTerm(Type) 32
-        32 Term(Type("num"))
-       31 NonTerm(Name) 33
-        33 Term(Name("a"))
-     27 Term(Grouping(";"))
-     28 NonTerm(Code) 34
-      34 NonTerm(Instr) 35
-       35 NonTerm(CondBranch) 36 37 38 39 40 41 42 43
-        36 Term(Control("if"))
-        37 Term(Grouping("("))
-        38 NonTerm(Bool) 44 45 46 47 48 49
-         44 Term(Boolean("and"))
-         45 Term(Grouping("("))
-         46 NonTerm(Bool) 50
-          50 NonTerm(Var) 51
-           51 Term(Name("a"))
-         47 Term(Grouping(","))
-         48 NonTerm(Bool) 52 53 54 55 56 57
-          52 Term(Boolean("or"))
-          53 Term(Grouping("("))
-          54 NonTerm(Bool) 58
-           58 NonTerm(Var) 59
-            59 Term(Name("b"))
-          55 Term(Grouping(","))
-          56 NonTerm(Bool) 60
-           60 NonTerm(Var) 61
-            61 Term(Name("c"))
-          57 Term(Grouping(")"))
-         49 Term(Grouping(")"))
-        39 Term(Grouping(")"))
-        40 Term(Control("then"))
-        41 Term(Grouping("{"))
-        42 NonTerm(Code) 62
-         62 NonTerm(Instr) 63
-          63 Term(Special("halt"))
-        43 Term(Grouping("}"))
+   12 NonTerm(Code) 19 20 21
+    19 NonTerm(Instr) 22
+     22 NonTerm(IO) 23 24 25 26
+      23 Term(IO("output"))
+      24 Term(Grouping("("))
+      25 NonTerm(Var) 27
+       27 Term(Name("kek"))
+      26 Term(Grouping(")"))
+    20 Term(Grouping(";"))
+    21 NonTerm(Code) 28
+     28 NonTerm(Instr) 29
+      29 Term(Special("halt"))

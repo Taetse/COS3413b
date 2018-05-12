@@ -1,0 +1,5 @@
+INPUT V0$
+PRINT V0$
+GOTO %0
+%0
+END

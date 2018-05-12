@@ -3,7 +3,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.constants.NodeType;
 import java.util.*;
 
 public class SemanticTable {
-    private SemanticNode table[];
+    public SemanticNode table[];
     private ArrayList<HashMap<String, Integer>> symbolTable = new ArrayList<>();
     private ArrayList<HashMap<String, Integer>> flowStartTable = new ArrayList<>();
     private AbstractTree tree;
