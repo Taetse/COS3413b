@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eda887ee-b1e1-44a3-b078-ac2d9da2ed48" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/auxiliary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/auxiliary.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finalOutput.bas" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/finalOutput.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.bas" beforeDir="false" afterPath="$PROJECT_DIR$/output.bas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/at.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/at.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/ct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/ct.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser/translatetest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/translatetest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/at.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/ct.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser/translatetest.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +19,8 @@
       <file leaf-file-name="Translator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Translator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="232" column="32" lean-forward="true" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
+            <state relative-caret-position="4080">
+              <caret line="240" column="40" lean-forward="true" selection-start-line="240" selection-start-column="40" selection-end-line="240" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#568#569#0" expanded="true" />
@@ -243,16 +238,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526121600444</updated>
-      <workItem from="1526121604025" duration="24143000" />
+      <workItem from="1526121604025" duration="25484000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24143000" />
+    <option name="totallyTimeSpent" value="25484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -265,7 +259,7 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.053134963" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5154091" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
@@ -328,8 +322,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Translator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="232" column="32" lean-forward="true" selection-start-line="232" selection-start-column="32" selection-end-line="232" selection-end-column="32" />
+        <state relative-caret-position="4080">
+          <caret line="240" column="40" lean-forward="true" selection-start-line="240" selection-start-column="40" selection-end-line="240" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#568#569#0" expanded="true" />
