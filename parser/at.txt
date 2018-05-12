@@ -1,0 +1,24 @@
+0 Prog 1 2
+ 1 Code 3 4 5 6 7 8 9 10 11
+  3 StrDecl("stri7")
+  4 Output 12
+   12 Var("stri7")
+  5 Input 13
+   13 Var("stri7")
+  6 Output 14
+   14 Var("stri7")
+  7 StrDecl("stri8")
+  8 Output 15
+   15 Var("stri8")
+  9 Call("flowstart")
+  10 Output 16
+   16 Var("stri8")
+  11 Halt
+ 2 ProcDefs 17
+  17 Proc("flowstart") 18
+   18 Prog 19
+    19 Code 20 21
+     20 Assign 22 23
+      22 Var("stri8")
+      23 String("kek")
+     21 Halt

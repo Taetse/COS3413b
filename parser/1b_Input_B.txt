@@ -1,0 +1,54 @@
+string stri7;
+string stri9;
+num i;
+num y;
+num z;
+num c;
+num x;
+num j;
+num d;
+num h;
+num n32;
+num temp;
+string warning;
+warning = "help";
+num aux;
+string message;
+num result;
+string stri7;
+stri7 = "kek";
+
+if (eq(stri7,stri9)) then { halt } ; 
+string sfdsfa;
+sfdsfa = "hello";
+output(stri9) ; 
+bool kek;
+kek = T;
+
+for(i=0 ; i<j ; i=add(i,1)) 
+   { input(x) ; 
+     s37 = str 
+   } ; 
+while( and( eq(y,z), (c>d)) ) 
+     { for(h=0 ; h<k ; h=add(h,1)) 
+          { procedure46 } ; 
+       output(result) 
+     } ; 
+
+if (not (n32<n98)) then { p46 } ; 
+
+num mynumber;
+proc p46 { output(result) ; 
+if(eq(y,y)) then { halt } else {p47} ; 
+output(message) 
+}
+proc p47 { if( not(c<boolean)) then { halt } else {temp = sub(-240,aux)} ; 
+output(warning) ; 
+if(eq(temp,stri7)) then { halt } 
+} 
+proc p47 { if( not(c<boolean)) then { halt } else {temp = sub(-240,aux)} ; 
+output(warning);
+proc p433 { if( not(c<boolean)) then { halt } else {temp = sub(-240,aux)} ; 
+output(warning) 
+} 
+} 

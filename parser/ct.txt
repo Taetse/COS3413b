@@ -1,0 +1,89 @@
+0 NonTerm(Prog) 1 2 3
+ 1 NonTerm(Code) 4 5 6
+  4 NonTerm(Instr) 7
+   7 NonTerm(Decl) 8 9
+    8 NonTerm(Type) 10
+     10 Term(Type("string"))
+    9 NonTerm(Name) 11
+     11 Term(Name("stri7"))
+  5 Term(Grouping(";"))
+  6 NonTerm(Code) 12 13 14
+   12 NonTerm(Instr) 15
+    15 NonTerm(IO) 16 17 18 19
+     16 Term(IO("output"))
+     17 Term(Grouping("("))
+     18 NonTerm(Var) 20
+      20 Term(Name("stri7"))
+     19 Term(Grouping(")"))
+   13 Term(Grouping(";"))
+   14 NonTerm(Code) 21 22 23
+    21 NonTerm(Instr) 24
+     24 NonTerm(IO) 25 26 27 28
+      25 Term(IO("input"))
+      26 Term(Grouping("("))
+      27 NonTerm(Var) 29
+       29 Term(Name("stri7"))
+      28 Term(Grouping(")"))
+    22 Term(Grouping(";"))
+    23 NonTerm(Code) 30 31 32
+     30 NonTerm(Instr) 33
+      33 NonTerm(IO) 34 35 36 37
+       34 Term(IO("output"))
+       35 Term(Grouping("("))
+       36 NonTerm(Var) 38
+        38 Term(Name("stri7"))
+       37 Term(Grouping(")"))
+     31 Term(Grouping(";"))
+     32 NonTerm(Code) 39 40 41
+      39 NonTerm(Instr) 42
+       42 NonTerm(Decl) 43 44
+        43 NonTerm(Type) 45
+         45 Term(Type("string"))
+        44 NonTerm(Name) 46
+         46 Term(Name("stri8"))
+      40 Term(Grouping(";"))
+      41 NonTerm(Code) 47 48 49
+       47 NonTerm(Instr) 50
+        50 NonTerm(IO) 51 52 53 54
+         51 Term(IO("output"))
+         52 Term(Grouping("("))
+         53 NonTerm(Var) 55
+          55 Term(Name("stri8"))
+         54 Term(Grouping(")"))
+       48 Term(Grouping(";"))
+       49 NonTerm(Code) 56 57 58
+        56 NonTerm(Instr) 59
+         59 NonTerm(Call) 60
+          60 Term(Name("flowstart"))
+        57 Term(Grouping(";"))
+        58 NonTerm(Code) 61 62 63
+         61 NonTerm(Instr) 64
+          64 NonTerm(IO) 65 66 67 68
+           65 Term(IO("output"))
+           66 Term(Grouping("("))
+           67 NonTerm(Var) 69
+            69 Term(Name("stri8"))
+           68 Term(Grouping(")"))
+         62 Term(Grouping(";"))
+         63 NonTerm(Code) 70
+          70 NonTerm(Instr) 71
+           71 Term(Special("halt"))
+ 2 Term(Grouping(";"))
+ 3 NonTerm(ProcDefs) 72
+  72 NonTerm(Proc) 73 74 75 76 77
+   73 Term(Procedure("proc"))
+   74 Term(Name("flowstart"))
+   75 Term(Grouping("{"))
+   76 NonTerm(Prog) 78
+    78 NonTerm(Code) 79 80 81
+     79 NonTerm(Instr) 82
+      82 NonTerm(Assign) 83 84 85
+       83 NonTerm(Var) 86
+        86 Term(Name("stri8"))
+       84 Term(Assignment("="))
+       85 Term(String("\"kek\""))
+     80 Term(Grouping(";"))
+     81 NonTerm(Code) 87
+      87 NonTerm(Instr) 88
+       88 Term(Special("halt"))
+   77 Term(Grouping("}"))
