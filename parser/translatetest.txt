@@ -1,3 +1,6 @@
 num b;
 num c;
-if (not b) then {a = 0}
+num b;
+num a;
+
+if (and(a,or(b,c))) then {halt}

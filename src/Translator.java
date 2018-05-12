@@ -112,26 +112,27 @@ public class Translator {
             case Output:
                 intermediateCode = "PRINT " + place;
                 break;
+            case NotExpr:
+            case AndExpr:
+            case OrExpr:
             case EqExpr:
+                String label1 = newLabel();
+                String label2 = newLabel();
+                String code1 = translateBoolean(abstractNode, label1, label2);
+                intermediateCode = "LET " + place + " = 0\r\n" + code1 + label1 + " LET " + place + " = 1 " + label2;
+                break;
             case GreaterExpr:
             case LessExpr:
             case AddExpr:
             case SubExpr:
             case MultExpr:
-            case OrExpr:
-            case AndExpr:
                 String place1 = newNumVar();
                 String place2 = newNumVar();
-                String code1 = translateExpression(abstractNode.children[0], place1);
+                code1 = translateExpression(abstractNode.children[0], place1);
                 String code2 = translateExpression(abstractNode.children[1], place2);
                 String op = translateOp(abstractNode);
                 intermediateCode = code1 + code2 + "LET " + place + " = " + place1 + " " + op + " " + place2;
                 break;
-            case NotExpr:
-                place1 = newNumVar();
-                code1 = translateExpression(abstractNode.children[0], place1);
-                op = translateOp(abstractNode);
-                intermediateCode = code1 + "LET " + place + " = " + op + " " + place1;
         }
 
         return intermediateCode + "\r\n";
@@ -142,19 +143,44 @@ public class Translator {
         String intermediateCode = "";
 
         switch (nodeType) {
-            case NotExpr:
-                String place1 = newNumVar();
-                String code1 = translateExpression(abstractNode.children[0], place1);
-                String op = translateOp(abstractNode);
-                intermediateCode = code1 + "IF " + op + " " + place1 + " THEN GOTO " + labelTrue + "\r\nGOTO " + labelFalse;
-                break;
-            default:
+            case Var:
                 String place = newNumVar();
                 String code = translateExpression(abstractNode, place);
-                intermediateCode = code + "IF " + place + " THEN GOTO " + labelTrue + "\r\nGOTO " + labelFalse;
+                intermediateCode = code + "IF " + place + " THEN GOTO " + labelTrue + "\r\nGOTO " + labelFalse + "\r\n";
+                break;
+            case True:
+                intermediateCode = "GOTO " + labelTrue + "\r\n";
+                break;
+            case False:
+                intermediateCode = "GOTO " + labelFalse + "\r\n";
+                break;
+            case EqExpr:
+            case GreaterExpr:
+            case LessExpr:
+                String place1 = newNumVar();
+                String place2 = newNumVar();
+                String code1 = translateExpression(abstractNode.children[0], place1);
+                String code2 = translateExpression(abstractNode.children[1], place2);
+                String op = translateOp(abstractNode);
+                intermediateCode = code1 + code2 + "IF " + place1 + " " + op + " " + place2 + " THEN GOTO " + labelTrue + "\r\nGOTO " + labelFalse + "\r\n";
+                break;
+            case OrExpr:
+                String arg2 = newLabel();
+                code1 = translateBoolean(abstractNode.children[0], labelTrue, arg2);
+                code2 = translateBoolean(abstractNode.children[1], labelTrue, labelFalse);
+                intermediateCode = code1 + arg2 + "\r\n" + code2;
+                break;
+            case AndExpr:
+                arg2 = newLabel();
+                code1 = translateBoolean(abstractNode.children[0], arg2, labelFalse);
+                code2 = translateBoolean(abstractNode.children[1], labelTrue, labelFalse);
+                intermediateCode = code1 + arg2 + "\r\n" + code2;
+                break;
+            case NotExpr:
+                intermediateCode = translateBoolean(abstractNode.children[0], labelFalse, labelTrue);
                 break;
         }
-        return intermediateCode + "\r\n";
+        return intermediateCode;
     }
 
     private String newNumVar() {

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eda887ee-b1e1-44a3-b078-ac2d9da2ed48" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/at.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/at.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/ct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/ct.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser/translatetest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/parser/translatetest.txt" afterDir="false" />
@@ -20,8 +21,8 @@
       <file leaf-file-name="Translator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Translator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+            <state relative-caret-position="188">
+              <caret line="154" column="64" selection-start-line="154" selection-start-column="64" selection-end-line="154" selection-end-column="64" />
               <folding>
                 <element signature="e#221#222#0" expanded="true" />
                 <element signature="e#245#246#0" expanded="true" />
@@ -33,7 +34,7 @@
                 <element signature="e#4158#4159#0" expanded="true" />
                 <element signature="e#6645#6646#0" expanded="true" />
                 <element signature="e#6689#6690#0" expanded="true" />
-                <marker date="1526135553715" expanded="true" signature="4237:5775" ph="{...}" />
+                <marker date="1526140192470" expanded="true" signature="4237:5824" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -223,12 +224,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526121600444</updated>
-      <workItem from="1526121604025" duration="13892000" />
+      <workItem from="1526121604025" duration="16752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13892000" />
+    <option name="totallyTimeSpent" value="16752000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -245,7 +246,7 @@
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20297556" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4112646" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
@@ -301,8 +302,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Translator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+        <state relative-caret-position="188">
+          <caret line="154" column="64" selection-start-line="154" selection-start-column="64" selection-end-line="154" selection-end-column="64" />
           <folding>
             <element signature="e#221#222#0" expanded="true" />
             <element signature="e#245#246#0" expanded="true" />
@@ -314,7 +315,7 @@
             <element signature="e#4158#4159#0" expanded="true" />
             <element signature="e#6645#6646#0" expanded="true" />
             <element signature="e#6689#6690#0" expanded="true" />
-            <marker date="1526135553715" expanded="true" signature="4237:5775" ph="{...}" />
+            <marker date="1526140192470" expanded="true" signature="4237:5824" ph="{...}" />
           </folding>
         </state>
       </provider>
