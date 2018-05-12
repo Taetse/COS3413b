@@ -16,7 +16,10 @@ public class Main {
 
         AbstractTree abstractTree = new AbstractTree(lines);
         SemanticTable semanticTable = new SemanticTable(abstractTree);
+        Translator translator = new Translator(abstractTree);
+
         System.out.println(semanticTable.toString());
+        System.out.println(translator.getIntermediateCode());
     }
 
     private static ArrayList<String> getAbstractFile(String fileName) {

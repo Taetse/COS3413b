@@ -1,0 +1,9 @@
+num a;
+num b;
+num c;
+
+a = 0;
+b = c;
+b = add(a, b);
+
+if(T) then {a=8} else {a = 20}

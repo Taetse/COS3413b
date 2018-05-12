@@ -1,24 +1,26 @@
-0 Prog 1 2
- 1 Code 3 4 5 6 7 8 9 10 11
-  3 StrDecl("stri7")
-  4 Output 12
-   12 Var("stri7")
-  5 Input 13
-   13 Var("stri7")
-  6 Output 14
-   14 Var("stri7")
-  7 StrDecl("stri8")
-  8 Output 15
-   15 Var("stri8")
-  9 Call("flowstart")
-  10 Output 16
-   16 Var("stri8")
-  11 Halt
- 2 ProcDefs 17
-  17 Proc("flowstart") 18
-   18 Prog 19
-    19 Code 20 21
-     20 Assign 22 23
-      22 Var("stri8")
-      23 String("kek")
-     21 Halt
+0 Prog 1
+ 1 Code 2 3 4 5 6 7 8
+  2 NumDecl("a")
+  3 NumDecl("b")
+  4 NumDecl("c")
+  5 Assign 9 10
+   9 Var("a")
+   10 Number("0")
+  6 Assign 11 12
+   11 Var("b")
+   12 Var("c")
+  7 Assign 13 14
+   13 Var("b")
+   14 AddExpr 15 16
+    15 Var("a")
+    16 Var("b")
+  8 CondBranch 17 18 19
+   17 True
+   18 Code 20
+    20 Assign 21 22
+     21 Var("a")
+     22 Number("8")
+   19 Code 23
+    23 Assign 24 25
+     24 Var("a")
+     25 Number("20")
