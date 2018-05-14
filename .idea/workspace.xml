@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eda887ee-b1e1-44a3-b078-ac2d9da2ed48" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/at.txt" beforeDir="false" afterPath="$PROJECT_DIR$/at.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auxiliary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/auxiliary.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ct.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flowtest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/flowtest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.bas" beforeDir="false" afterPath="$PROJECT_DIR$/output.bas" afterDir="false" />
-    </list>
+    <list default="true" id="eda887ee-b1e1-44a3-b078-ac2d9da2ed48" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -237,12 +230,12 @@
       <updated>1526121600444</updated>
       <workItem from="1526121604025" duration="26083000" />
       <workItem from="1526160302993" duration="5450000" />
-      <workItem from="1526312575739" duration="949000" />
+      <workItem from="1526312575739" duration="1568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32482000" />
+    <option name="totallyTimeSpent" value="33101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -258,7 +251,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6705632" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6705632" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />

@@ -1,6 +1,0 @@
-string jan;
-jan = "wal";
-kek;
-if(eq(piel, jan))
-then {output(jan)}
-else {halt}

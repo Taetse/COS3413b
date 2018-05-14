@@ -1,30 +1,39 @@
-0 Prog 1
- 1 Code 2 3 4 5 6 7 8 9 10
-  2 NumDecl("x")
-  3 NumDecl("y")
-  4 NumDecl("o")
-  5 Input 11
-   11 Var("x")
+0 Prog 1 2
+ 1 Code 3 4 5 6 7 8 9 10 11
+  3 NumDecl("size")
+  4 StrDecl("message")
+  5 NumDecl("control")
   6 Assign 12 13
-   12 Var("o")
-   13 Number("1")
-  7 WhileLoop 14 15
-   14 GreaterExpr 16 17
-    16 Var("x")
-    17 Var("o")
-   15 Code 18 19
-    18 Assign 20 21
-     20 Var("y")
-     21 AddExpr 22 23
-      22 Var("x")
-      23 Var("o")
-    19 Assign 24 25
-     24 Var("x")
-     25 SubExpr 26 27
-      26 Var("x")
-      27 Var("o")
-  8 Output 28
-   28 Var("x")
-  9 Output 29
-   29 Var("y")
-  10 Halt
+   12 Var("control")
+   13 Number("0")
+  7 Assign 14 15
+   14 Var("message")
+   15 String("size ")
+  8 Output 16
+   16 Var("message")
+  9 Input 17
+   17 Var("size")
+  10 Call("recursive")
+  11 Halt
+ 2 ProcDefs 18
+  18 Proc("recursive") 19
+   19 Prog 20
+    20 Code 21 22 23 24
+     21 CondBranch 25 26
+      25 OrExpr 27 28
+       27 GreaterExpr 29 30
+        29 Var("control")
+        30 Var("size")
+       28 EqExpr 31 32
+        31 Var("control")
+        32 Var("size")
+      26 Code 33
+       33 Halt
+     22 Output 34
+      34 Var("control")
+     23 Assign 35 36
+      35 Var("control")
+      36 AddExpr 37 38
+       37 Var("control")
+       38 Number("1")
+     24 Call("recursive")

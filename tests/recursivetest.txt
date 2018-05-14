@@ -1,0 +1,13 @@
+num size;
+string message;
+num control;
+control = 0;
+message = "size ";
+
+output(message);
+input(size);
+
+recursive;
+halt;
+
+proc recursive {if(or((control > size),eq(control, size))) then {halt}; output(control); control = add(control, 1); recursive}
