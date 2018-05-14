@@ -9,4 +9,4 @@ input(size);
 
 recursive;
 
-proc recursive {if((control > size)) then {halt}; output(control); control = add(control, 1); recursive}
+proc recursive {if((control > size)) then {halt}; print; control = add(control, 1); recursive; proc print {output(control)}}

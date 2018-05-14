@@ -9,9 +9,11 @@ public class Translator {
     private SemanticTable semanticTable;
     private String intermediateCode;
     private String finalIntermediateCode;
-    private int varCount = 0;
+//    private int varCount = 0;
+    private int varChars[] = new int[]{0,0};
     private int labelCount = 0;
     private String endLabel;
+    private HashMap<String, String> variableMap = new HashMap<>();
 
     public Translator(AbstractTree tree, SemanticTable semanticTable) {
         this.tree = tree;
@@ -122,14 +124,19 @@ public class Translator {
                 intermediateCode = code0 + label1 + "\r\n" + code1 + label2 + "\r\n" + code2 + code3 + "GOTO " + label1 + "\r\n" + label3 + "\r\n";
                 break;
             case Assign:
-                String place = abstractNode.children[0].val;
-                place += (semanticTable.table[abstractNode.id].nameType == NameType.S? "$" : "");
+                String place;
+                if (semanticTable.table[abstractNode.id].nameType == NameType.S)
+                    place = translateStringVar(abstractNode.children[0].val);
+                else
+                    place = translateNumVar(abstractNode.children[0].val);
                 intermediateCode = translateExpression(abstractNode.children[1], place);
                 break;
             case Output:
             case Input:
-                place = abstractNode.children[0].val;
-                place += (semanticTable.table[abstractNode.id].nameType == NameType.S? "$" : "");
+                if (semanticTable.table[abstractNode.id].nameType == NameType.S)
+                    place = translateStringVar(abstractNode.children[0].val);
+                else
+                    place = translateNumVar(abstractNode.children[0].val);
                 intermediateCode = translateExpression(abstractNode, place);
                 break;
             case ProcDefs:
@@ -159,6 +166,10 @@ public class Translator {
                 intermediateCode = "LET " + place + " = 0";
                 break;
             case Var:
+                intermediateCode = "LET " + place + " = " +
+                        (semanticTable.table[abstractNode.id].nameType == NameType.S?
+                                translateStringVar(abstractNode.val) : translateNumVar(abstractNode.val));
+                break;
             case String:
             case Number:
                 intermediateCode = "LET " + place + " = " + abstractNode.val;
@@ -241,11 +252,32 @@ public class Translator {
     }
 
     private String newNumVar() {
-        return "VAR" + varCount++;
+        char char1 = (char)(varChars[0] + 'A');
+        char char2 = (char)(varChars[1] + 'A');
+        String varName = String.valueOf(char1) + String.valueOf(char2);
+
+        varChars[1]++;
+        if (varChars[1] >= 26) {
+            varChars[0]++;
+            varChars[1] = 0;
+        }
+        return varName;
     }
 
     private String newStringVar() {
-        return "VAR" + varCount++ + "$";
+        return newNumVar() + "$";
+    }
+
+    private String translateNumVar(String var) {
+        if (variableMap.get(var) == null)
+            variableMap.put(var, newNumVar());
+        return variableMap.get(var);
+    }
+
+    private String translateStringVar(String var) {
+        if (variableMap.get(var) == null)
+            variableMap.put(var, newStringVar());
+        return variableMap.get(var);
     }
 
     private String newLabel() {
