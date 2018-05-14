@@ -1,0 +1,17 @@
+
+num x;
+num y;
+num o;
+
+input(x);
+o = 1;
+ 
+while((x > o))
+{
+ y = add(x,o);
+ x = sub(x,o)
+};
+
+output(x);
+output(y);
+halt

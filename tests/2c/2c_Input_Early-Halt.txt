@@ -1,0 +1,8 @@
+
+num z;
+num x;
+x = 1;
+
+halt;
+
+z = add(z,x)

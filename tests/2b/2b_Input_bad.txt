@@ -1,0 +1,49 @@
+
+string fun;
+
+num one ;
+
+one = 1 ;
+
+input(fun) ;
+
+bool one ;
+
+one = "one" ;
+
+one = and(T,F) ;
+
+if ( eq(one,one) )
+   then 
+        { one = mult(one,fun) ; fun ; fun = "joke" } 
+   else 
+        { fun = "null"; one = or(one,one) ; fun = add(fun,one) ; fun } ;
+
+one = fun ;
+
+output(fun);
+
+output(one);
+
+proc fun {
+
+           string s;
+
+           bool fun;
+
+    fun = and( or(fun,fun) , (one > fun) );
+
+           fun = mult(fun,one) ;
+
+           if ( fun ) then { fun = T; fun ; fun = one ; one = or(F,fun) } ; 
+
+    fun = "hello" ;
+
+           one = sub(fun,fun) ;
+
+           output(fun);
+
+           s = fun ;
+
+           output(s)
+  }

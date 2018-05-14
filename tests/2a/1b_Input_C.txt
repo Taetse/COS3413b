@@ -1,0 +1,12 @@
+bool schlabotnik;
+while( and( or(not eq(v0,v1), not (v2<v3) ), or( eq(v4,v5), not(v6>v7)) ) ) 
+     { while( or(eq(v8,v9),(undef<v11)) ) 
+            { while( and( or(not eq(v14,v15),(v19>v126)),or(eq(undef,undef),(undef<undef))) ) 
+                   { halt ; 
+                     output(undef) ; 
+                     halt ; 
+                     undef = "the dog" ; 
+                     halt
+                 }
+            }
+     }

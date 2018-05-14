@@ -1,60 +1,30 @@
-0 Prog 1 2
- 1 Code 3 4 5 6 7 8
-  3 NumDecl("b")
-  4 Assign 9 10
-   9 Var("b")
-   10 Number("1")
-  5 NumDecl("a")
-  6 NumDecl("test")
-  7 Call("p1")
-  8 Output 11
-   11 Var("a")
- 2 ProcDefs 12 13 14 15 16 17 18 19 20 21
-  12 Proc("p1") 22
-   22 Prog 23
-    23 Code 24
-     24 Call("p2")
-  13 Proc("p2") 25
-   25 Prog 26
-    26 Code 27
-     27 Call("p3")
-  14 Proc("p3") 28
-   28 Prog 29
-    29 Code 30
-     30 Call("p4")
-  15 Proc("p4") 31
-   31 Prog 32
-    32 Code 33
-     33 Call("p5")
-  16 Proc("p5") 34
-   34 Prog 35
-    35 Code 36
-     36 Call("p6")
-  17 Proc("p6") 37
-   37 Prog 38
-    38 Code 39
-     39 Call("p7")
-  18 Proc("p7") 40
-   40 Prog 41
-    41 Code 42
-     42 Call("p8")
-  19 Proc("p8") 43
-   43 Prog 44
-    44 Code 45
-     45 Call("p9")
-  20 Proc("p9") 46
-   46 Prog 47
-    47 Code 48
-     48 Call("p10")
-  21 Proc("p10") 49
-   49 Prog 50
-    50 Code 51
-     51 CondBranch 52 53 54
-      52 True
-      53 Code 55
-       55 Assign 56 57
-        56 Var("a")
-        57 Number("3")
-      54 Code 58
-       58 Input 59
-        59 Var("a")
+0 Prog 1
+ 1 Code 2 3 4 5 6 7 8 9 10
+  2 NumDecl("x")
+  3 NumDecl("y")
+  4 NumDecl("o")
+  5 Input 11
+   11 Var("x")
+  6 Assign 12 13
+   12 Var("o")
+   13 Number("1")
+  7 WhileLoop 14 15
+   14 GreaterExpr 16 17
+    16 Var("x")
+    17 Var("o")
+   15 Code 18 19
+    18 Assign 20 21
+     20 Var("y")
+     21 AddExpr 22 23
+      22 Var("x")
+      23 Var("o")
+    19 Assign 24 25
+     24 Var("x")
+     25 SubExpr 26 27
+      26 Var("x")
+      27 Var("o")
+  8 Output 28
+   28 Var("x")
+  9 Output 29
+   29 Var("y")
+  10 Halt
