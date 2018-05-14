@@ -1,39 +1,38 @@
 0 Prog 1 2
- 1 Code 3 4 5 6 7 8 9 10 11
+ 1 Code 3 4 5 6 7 8 9 10
   3 NumDecl("size")
   4 StrDecl("message")
   5 NumDecl("control")
-  6 Assign 12 13
-   12 Var("control")
-   13 Number("0")
-  7 Assign 14 15
-   14 Var("message")
-   15 String("size ")
-  8 Output 16
-   16 Var("message")
-  9 Input 17
-   17 Var("size")
+  6 Assign 11 12
+   11 Var("control")
+   12 Number("0")
+  7 Assign 13 14
+   13 Var("message")
+   14 String("size ")
+  8 Output 15
+   15 Var("message")
+  9 Input 16
+   16 Var("size")
   10 Call("recursive")
-  11 Halt
- 2 ProcDefs 18
-  18 Proc("recursive") 19
-   19 Prog 20
-    20 Code 21 22 23 24
-     21 CondBranch 25 26
-      25 OrExpr 27 28
-       27 GreaterExpr 29 30
-        29 Var("control")
-        30 Var("size")
-       28 EqExpr 31 32
-        31 Var("control")
-        32 Var("size")
-      26 Code 33
-       33 Halt
-     22 Output 34
+ 2 ProcDefs 17
+  17 Proc("recursive") 18
+   18 Prog 19
+    19 Code 20 21 22 23
+     20 CondBranch 24 25
+      24 OrExpr 26 27
+       26 GreaterExpr 28 29
+        28 Var("control")
+        29 Var("size")
+       27 EqExpr 30 31
+        30 Var("control")
+        31 Var("size")
+      25 Code 32
+       32 Halt
+     21 Output 33
+      33 Var("control")
+     22 Assign 34 35
       34 Var("control")
-     23 Assign 35 36
-      35 Var("control")
-      36 AddExpr 37 38
-       37 Var("control")
-       38 Number("1")
-     24 Call("recursive")
+      35 AddExpr 36 37
+       36 Var("control")
+       37 Number("1")
+     23 Call("recursive")

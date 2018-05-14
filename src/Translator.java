@@ -30,6 +30,8 @@ public class Translator {
 
         int index = 0;
         for (String line : lines) {
+            if (line.length() == 0)
+                continue;
             Matcher matcher = pattern.matcher(line);
             if (matcher.find()) { //line is a label
                 labelMap.put(matcher.group(), index);
@@ -129,6 +131,12 @@ public class Translator {
                 place = abstractNode.children[0].val;
                 place += (semanticTable.table[abstractNode.id].nameType == NameType.S? "$" : "");
                 intermediateCode = translateExpression(abstractNode, place);
+                break;
+            case ProcDefs:
+                intermediateCode = "GOTO " + endLabel + "\r\n";
+                for (AbstractNode childAbstractNode : abstractNode.children) {
+                    intermediateCode += translateStatement(childAbstractNode);
+                }
                 break;
             default:
                 for (AbstractNode childAbstractNode : abstractNode.children) {

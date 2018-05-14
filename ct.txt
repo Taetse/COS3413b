@@ -58,85 +58,81 @@
            62 Term(Name("size"))
           61 Term(Grouping(")"))
         55 Term(Grouping(";"))
-        56 NonTerm(Code) 63 64 65
-         63 NonTerm(Instr) 66
-          66 NonTerm(Call) 67
-           67 Term(Name("recursive"))
-         64 Term(Grouping(";"))
-         65 NonTerm(Code) 68
-          68 NonTerm(Instr) 69
-           69 Term(Special("halt"))
+        56 NonTerm(Code) 63
+         63 NonTerm(Instr) 64
+          64 NonTerm(Call) 65
+           65 Term(Name("recursive"))
  2 Term(Grouping(";"))
- 3 NonTerm(ProcDefs) 70
-  70 NonTerm(Proc) 71 72 73 74 75
-   71 Term(Procedure("proc"))
-   72 Term(Name("recursive"))
-   73 Term(Grouping("{"))
-   74 NonTerm(Prog) 76
-    76 NonTerm(Code) 77 78 79
-     77 NonTerm(Instr) 80
-      80 NonTerm(CondBranch) 81 82 83 84 85 86 87 88
-       81 Term(Control("if"))
-       82 Term(Grouping("("))
-       83 NonTerm(Bool) 89 90 91 92 93 94
-        89 Term(Boolean("or"))
-        90 Term(Grouping("("))
-        91 NonTerm(Bool) 95 96 97 98 99
-         95 Term(Grouping("("))
-         96 NonTerm(Var) 100
-          100 Term(Name("control"))
-         97 Term(Comparison(">"))
-         98 NonTerm(Var) 101
-          101 Term(Name("size"))
-         99 Term(Grouping(")"))
-        92 Term(Grouping(","))
-        93 NonTerm(Bool) 102 103 104 105 106 107
-         102 Term(Comparison("eq"))
-         103 Term(Grouping("("))
-         104 NonTerm(Var) 108
-          108 Term(Name("control"))
-         105 Term(Grouping(","))
-         106 NonTerm(Var) 109
-          109 Term(Name("size"))
-         107 Term(Grouping(")"))
-        94 Term(Grouping(")"))
-       84 Term(Grouping(")"))
-       85 Term(Control("then"))
-       86 Term(Grouping("{"))
-       87 NonTerm(Code) 110
-        110 NonTerm(Instr) 111
-         111 Term(Special("halt"))
-       88 Term(Grouping("}"))
-     78 Term(Grouping(";"))
-     79 NonTerm(Code) 112 113 114
-      112 NonTerm(Instr) 115
-       115 NonTerm(IO) 116 117 118 119
-        116 Term(IO("output"))
-        117 Term(Grouping("("))
-        118 NonTerm(Var) 120
-         120 Term(Name("control"))
-        119 Term(Grouping(")"))
-      113 Term(Grouping(";"))
-      114 NonTerm(Code) 121 122 123
-       121 NonTerm(Instr) 124
-        124 NonTerm(Assign) 125 126 127
-         125 NonTerm(Var) 128
-          128 Term(Name("control"))
-         126 Term(Assignment("="))
-         127 NonTerm(NumExpr) 129
-          129 NonTerm(Calc) 130 131 132 133 134 135
-           130 Term(Arithmetic("add"))
-           131 Term(Grouping("("))
-           132 NonTerm(NumExpr) 136
-            136 NonTerm(Var) 137
-             137 Term(Name("control"))
-           133 Term(Grouping(","))
-           134 NonTerm(NumExpr) 138
-            138 Term(Number("1"))
-           135 Term(Grouping(")"))
-       122 Term(Grouping(";"))
-       123 NonTerm(Code) 139
-        139 NonTerm(Instr) 140
-         140 NonTerm(Call) 141
-          141 Term(Name("recursive"))
-   75 Term(Grouping("}"))
+ 3 NonTerm(ProcDefs) 66
+  66 NonTerm(Proc) 67 68 69 70 71
+   67 Term(Procedure("proc"))
+   68 Term(Name("recursive"))
+   69 Term(Grouping("{"))
+   70 NonTerm(Prog) 72
+    72 NonTerm(Code) 73 74 75
+     73 NonTerm(Instr) 76
+      76 NonTerm(CondBranch) 77 78 79 80 81 82 83 84
+       77 Term(Control("if"))
+       78 Term(Grouping("("))
+       79 NonTerm(Bool) 85 86 87 88 89 90
+        85 Term(Boolean("or"))
+        86 Term(Grouping("("))
+        87 NonTerm(Bool) 91 92 93 94 95
+         91 Term(Grouping("("))
+         92 NonTerm(Var) 96
+          96 Term(Name("control"))
+         93 Term(Comparison(">"))
+         94 NonTerm(Var) 97
+          97 Term(Name("size"))
+         95 Term(Grouping(")"))
+        88 Term(Grouping(","))
+        89 NonTerm(Bool) 98 99 100 101 102 103
+         98 Term(Comparison("eq"))
+         99 Term(Grouping("("))
+         100 NonTerm(Var) 104
+          104 Term(Name("control"))
+         101 Term(Grouping(","))
+         102 NonTerm(Var) 105
+          105 Term(Name("size"))
+         103 Term(Grouping(")"))
+        90 Term(Grouping(")"))
+       80 Term(Grouping(")"))
+       81 Term(Control("then"))
+       82 Term(Grouping("{"))
+       83 NonTerm(Code) 106
+        106 NonTerm(Instr) 107
+         107 Term(Special("halt"))
+       84 Term(Grouping("}"))
+     74 Term(Grouping(";"))
+     75 NonTerm(Code) 108 109 110
+      108 NonTerm(Instr) 111
+       111 NonTerm(IO) 112 113 114 115
+        112 Term(IO("output"))
+        113 Term(Grouping("("))
+        114 NonTerm(Var) 116
+         116 Term(Name("control"))
+        115 Term(Grouping(")"))
+      109 Term(Grouping(";"))
+      110 NonTerm(Code) 117 118 119
+       117 NonTerm(Instr) 120
+        120 NonTerm(Assign) 121 122 123
+         121 NonTerm(Var) 124
+          124 Term(Name("control"))
+         122 Term(Assignment("="))
+         123 NonTerm(NumExpr) 125
+          125 NonTerm(Calc) 126 127 128 129 130 131
+           126 Term(Arithmetic("add"))
+           127 Term(Grouping("("))
+           128 NonTerm(NumExpr) 132
+            132 NonTerm(Var) 133
+             133 Term(Name("control"))
+           129 Term(Grouping(","))
+           130 NonTerm(NumExpr) 134
+            134 Term(Number("1"))
+           131 Term(Grouping(")"))
+       118 Term(Grouping(";"))
+       119 NonTerm(Code) 135
+        135 NonTerm(Instr) 136
+         136 NonTerm(Call) 137
+          137 Term(Name("recursive"))
+   71 Term(Grouping("}"))

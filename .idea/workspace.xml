@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eda887ee-b1e1-44a3-b078-ac2d9da2ed48" name="Default" comment="" />
+    <list default="true" id="eda887ee-b1e1-44a3-b078-ac2d9da2ed48" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/at.txt" beforeDir="false" afterPath="$PROJECT_DIR$/at.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auxiliary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/auxiliary.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ct.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ct.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output.bas" beforeDir="false" afterPath="$PROJECT_DIR$/output.bas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/recursivetest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/recursivetest.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,14 +20,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Translator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Translator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Translator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3383">
-              <caret line="209" column="28" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
+            <state relative-caret-position="102">
+              <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="139" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1526162299371" expanded="true" signature="6109:7696" ph="{...}" />
+                <marker date="1526322123937" expanded="true" signature="6461:8048" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -29,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/src/AbstractTree.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -38,20 +46,16 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="34" column="71" lean-forward="true" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
+              <caret line="34" column="71" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SemanticTable.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SemanticTable.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SemanticTable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="141">
               <caret line="215" selection-start-line="215" selection-end-line="215" />
-              <folding>
-                <element signature="e#22193#22194#0" expanded="true" />
-                <element signature="e#22239#22240#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -82,8 +86,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Translator.java" />
         <option value="$PROJECT_DIR$/src/SemanticTable.java" />
+        <option value="$PROJECT_DIR$/src/Translator.java" />
       </list>
     </option>
   </component>
@@ -105,7 +109,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -122,7 +126,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -231,14 +235,16 @@
       <workItem from="1526121604025" duration="26083000" />
       <workItem from="1526160302993" duration="5450000" />
       <workItem from="1526312575739" duration="1568000" />
+      <workItem from="1526321610450" duration="514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33101000" />
+    <option name="totallyTimeSpent" value="33615000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -251,7 +257,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6705632" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.54835284" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -282,7 +288,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Translator.java</url>
-          <line>91</line>
+          <line>93</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -303,7 +309,39 @@
           <caret line="209" column="28" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1526162299371" expanded="true" signature="6109:7696" ph="{...}" />
+            <marker date="1526322123937" expanded="true" signature="6461:8048" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AbstractTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="34" column="71" lean-forward="true" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SemanticTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3621">
+          <caret line="215" selection-start-line="215" selection-end-line="215" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Translator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3383">
+          <caret line="209" column="28" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1526322123937" expanded="true" signature="6461:8048" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -319,10 +357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
           <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
-          <folding>
-            <element signature="e#22193#22194#0" expanded="true" />
-            <element signature="e#22239#22240#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -339,7 +373,7 @@
           <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1526162299371" expanded="true" signature="6109:7696" ph="{...}" />
+            <marker date="1526322123937" expanded="true" signature="6461:8048" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -372,28 +406,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Translator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3383">
-          <caret line="209" column="28" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1526162299371" expanded="true" signature="6109:7696" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
-          <caret line="34" column="71" lean-forward="true" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
+          <caret line="34" column="71" selection-start-line="34" selection-start-column="71" selection-end-line="34" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AbstractTree.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -401,9 +424,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="215" selection-start-line="215" selection-end-line="215" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Translator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="134" column="20" selection-start-line="134" selection-start-column="20" selection-end-line="139" selection-end-column="20" />
           <folding>
-            <element signature="e#22193#22194#0" expanded="true" />
-            <element signature="e#22239#22240#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1526322123937" expanded="true" signature="6461:8048" ph="{...}" />
           </folding>
         </state>
       </provider>

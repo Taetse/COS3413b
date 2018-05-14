@@ -3,7 +3,6 @@ LET V1$ = "size "
 PRINT V1$
 INPUT V0
 GOSUB %P0
-GOTO %0
 %P0
 LET VAR0 = V2
 LET VAR1 = V0
