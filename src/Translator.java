@@ -133,15 +133,15 @@ public class Translator {
                 intermediateCode = translateExpression(abstractNode, place);
                 break;
             case ProcDefs:
-                intermediateCode = "GOTO " + endLabel + "\r\n";
-                for (AbstractNode childAbstractNode : abstractNode.children) {
+                String defsLabel = newLabel();
+                intermediateCode = "GOTO " + defsLabel + "\r\n";
+                for (AbstractNode childAbstractNode : abstractNode.children)
                     intermediateCode += translateStatement(childAbstractNode);
-                }
+                intermediateCode += defsLabel + "\r\n";
                 break;
             default:
-                for (AbstractNode childAbstractNode : abstractNode.children) {
+                for (AbstractNode childAbstractNode : abstractNode.children)
                     intermediateCode += translateStatement(childAbstractNode);
-                }
                 break;
         }
         return intermediateCode;

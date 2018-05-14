@@ -19,20 +19,16 @@
    18 Prog 19
     19 Code 20 21 22 23
      20 CondBranch 24 25
-      24 OrExpr 26 27
-       26 GreaterExpr 28 29
-        28 Var("control")
-        29 Var("size")
-       27 EqExpr 30 31
-        30 Var("control")
-        31 Var("size")
-      25 Code 32
-       32 Halt
-     21 Output 33
-      33 Var("control")
-     22 Assign 34 35
-      34 Var("control")
-      35 AddExpr 36 37
-       36 Var("control")
-       37 Number("1")
+      24 GreaterExpr 26 27
+       26 Var("control")
+       27 Var("size")
+      25 Code 28
+       28 Halt
+     21 Output 29
+      29 Var("control")
+     22 Assign 30 31
+      30 Var("control")
+      31 AddExpr 32 33
+       32 Var("control")
+       33 Number("1")
      23 Call("recursive")
