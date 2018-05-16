@@ -1,0 +1,20 @@
+num a;
+janneman;
+num b;
+string message;
+b = 3;
+
+if ((a>b)) then 
+{message = "big"; output(message)} else 
+{message = "small"; output(message)};
+
+num c;
+string k;
+message = "unit";
+output(message);
+input(k);
+for(c = 0; c < a; c = add(c, 1)) {output(k) };
+halt;
+
+proc janneman 
+{string message; message = "size"; output(message); input(a)}

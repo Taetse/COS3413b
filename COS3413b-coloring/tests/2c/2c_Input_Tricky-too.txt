@@ -1,0 +1,35 @@
+
+num x;
+num y;
+num z;
+
+input(y);
+
+num null;
+null = 0;
+
+if( (y > null) ) then { ping } else { pong } ;
+
+output(x);
+output(z);
+
+halt;
+
+proc ping
+{
+ input(x);
+ input(z);
+ if (eq(x,y)) then { ping } ;
+ y = sub(y,x);
+ output(y)
+}
+
+proc pong
+{
+ num z;
+ input(z);
+ input(x);
+ if (eq(y,z)) then { pong } ;
+ y = add(y,z);
+ output(y)
+}

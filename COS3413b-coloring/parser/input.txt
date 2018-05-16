@@ -1,0 +1,20 @@
+
+num x;
+num y;
+num o;
+
+input(x);
+o = 1;
+string s;
+s = "halting";
+output(s);
+halt;
+while((x > o))
+{
+ y = add(y,o);
+ 0 = add(o,1)
+};
+
+output(x);
+output(y);
+

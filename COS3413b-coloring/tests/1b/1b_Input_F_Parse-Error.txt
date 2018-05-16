@@ -1,0 +1,17 @@
+
+if(eq(stri7,stri9)) then { halt } ; 
+
+output(stri9) ; 
+
+if(not (n32<n98)) then { p46 } ; 
+
+num mynumber ;
+
+proc p46 { output(result) ; 
+           if(eq(y,y)) then { halt } else {p47} ; 
+           output(message) ; 
+           
+           proc p47 { if(not (c<boolean)) then { halt } else {temp = sub(-240,aux) } ; 
+                      output(warning) ; 
+                      if( eq(temp,stri7)) then { halt } { else { eq(temp,stri7) ; /*WRONG BRACKETS AND SEMICOLON */
+         }

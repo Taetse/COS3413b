@@ -1,0 +1,30 @@
+
+num x;
+num y;
+num z;
+
+ping;
+pong;
+
+output(x);
+output(y);
+output(z);
+
+num n;
+n = add(n,n);
+
+proc ping
+{
+ num x;
+ input(y);
+ input(z);
+ x = sub(y,z)
+}
+
+proc pong
+{
+ num z;
+ input(z);
+ input(x);
+ z = add(y,x)
+}

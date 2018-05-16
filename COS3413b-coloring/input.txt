@@ -1,0 +1,43 @@
+
+num x;
+num y;
+num o;
+
+input(x);
+y=0;
+o = 0;
+
+while(and((x>y),or(T,F)))
+{
+ y = add(y,1);
+ o = add(o,1)
+};
+
+output(o);
+output(y);
+
+string s;
+s = "halting";
+output(s);
+halt;
+
+output(o);
+output(y);
+p0;
+halt;
+
+proc p0
+{
+ string s;
+ s="we are";
+output(s);
+p1
+
+}
+
+proc p1
+{
+ string s;
+s="done";
+output(s)
+}

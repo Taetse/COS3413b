@@ -1,0 +1,27 @@
+
+num y;
+num null;
+
+null = 0;
+input(y);
+
+if( (y > null) ) then { sister } else { brother } ;
+
+output(y);
+halt;
+
+proc brother
+{
+ num x;
+ input(x);
+ if (eq(x,y)) then { sister } ;
+ y = sub(y,x)
+}
+
+proc sister
+{
+ num z;
+ input(z);
+ if (eq(z,y)) then { brother } ;
+ y = add(y,z)
+}

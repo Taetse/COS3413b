@@ -1,0 +1,30 @@
+0 Prog 1
+ 1 Code 2 3 4 5 6 7 8 9 10
+  2 NumDecl("x")
+  3 NumDecl("y")
+  4 NumDecl("o")
+  5 Input 11
+   11 Var("x")
+  6 Assign 12 13
+   12 Var("o")
+   13 Number("1")
+  7 WhileLoop 14 15
+   14 GreaterExpr 16 17
+    16 Var("x")
+    17 Var("o")
+   15 Code 18 19
+    18 Assign 20 21
+     20 Var("y")
+     21 AddExpr 22 23
+      22 Var("x")
+      23 Var("o")
+    19 Assign 24 25
+     24 Var("x")
+     25 SubExpr 26 27
+      26 Var("x")
+      27 Var("o")
+  8 Output 28
+   28 Var("x")
+  9 Output 29
+   29 Var("y")
+  10 Halt

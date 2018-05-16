@@ -1,0 +1,25 @@
+input(a) ; 
+
+procedure12 ; 
+
+b = sub(add(c,-12),134) ; 
+
+output(procedure13) ; 
+
+if(not eq(c,b)) then{ halt } else { s27 = "heinz" } ;
+ 
+proc procedure14 { s28 = "my cat" ; 
+                   input(v0) }
+ 
+proc procedure15 { procedure16 ; 
+                   output(v128) ; 
+                   proc procedure17 
+                        { procedure18 ; 
+                          stri19 = "cos301" } }
+ 
+proc procedure19 { input(x) ; 
+                   halt } 
+
+proc procedure201a { y = sub(-1034,-10340) ; 
+                     procedure201b ; 
+                     if((var0<var1)) then{ halt } ; else { var17 = "h2o" } }  /*HERE*/

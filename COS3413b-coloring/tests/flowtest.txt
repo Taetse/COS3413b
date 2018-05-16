@@ -1,0 +1,20 @@
+num b;
+bool condition;
+condition = T;
+b = 1;
+num a;
+num test;
+p1;
+
+output(a);
+
+proc p1 {p2}
+proc p2 {p3}
+proc p3 {p4}
+proc p4 {p5}
+proc p5 {p6}
+proc p6 {p7}
+proc p7 {p8}
+proc p8 {p9}
+proc p9 {p10}
+proc p10 {if (condition) then {a = 3} else {input(a)}}

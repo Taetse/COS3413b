@@ -1,0 +1,12 @@
+num size;
+string message;
+num control;
+control = 0;
+message = "size ";
+
+output(message);
+input(size);
+
+recursive;
+
+proc recursive {if((control > size)) then {halt}; print; control = add(control, 1); recursive; proc print {output(control)}}
